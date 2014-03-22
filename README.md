@@ -49,9 +49,6 @@ Start reading `bin/pianochords`, or skip directly to `lib/anki_chord_generator.r
 Run the tests with `rake test`
 
 ## Remarks and open issues
-* Currently, there is no usable command line functionality. To generate a
-  deck, one has to run the `tc_anki_generator` test, in particular the
-  `test_generate_all` method.
 * The code internally uses a mixture of English and German musical
   terminology, and the file names of the generated PNGs reflect that, too.
 * I recommend to patch `piano.sty` and modify the picture dimensions
