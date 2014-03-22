@@ -1,4 +1,5 @@
 require_relative "chord"
+require_relative "chord/type/maj7"
 
 class AnkiChordTypeWriter
   def initialize(chord_type)
@@ -7,49 +8,14 @@ class AnkiChordTypeWriter
   end
 
   def for_filename
-    case @chord_type
-    when :maj7
-            "maj7"
-    when :seventh
-            "7"
-    when :minor7
-            "min7"
-    when :halfdim
-            "b7b5"
-    when :dim7
-            "dim7"
-    end
+    Chord::Type.create(@chord_type).anki_filename
   end
 
   def to_tag
-    case @chord_type
-    when :maj7
-            "maj7"
-    when :seventh
-            "dominantsept"
-    when :minor7
-            "moll7"
-    when :halfdim
-            "halbvermindert"
-    when :dim7
-            "vermindert"
-    end
+    Chord::Type.create(@chord_type).anki_tag
   end
 
   def html_symbol
-    ct = case @chord_type
-    when :maj7
-      "maj7"
-    when :seventh
-      "7"
-    when :minor7
-      "-7"
-    when :halfdim
-      "-7(&#9837;5)"
-    when :dim7
-      "o7"
-    end
-
-    "<sup>#{ct}</sup>"
+    "<sup>#{Chord::Type.create(@chord_type).html_symbol}</sup>"
   end
 end

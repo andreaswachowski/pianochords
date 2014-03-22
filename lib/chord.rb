@@ -1,4 +1,6 @@
 require_relative 'note'
+Dir[File.dirname(__FILE__) + "/chord/type/*.rb"].each { |file| require file.sub(/.rb\z/,'') }
+require_relative 'chord/type.rb'
 
 class Chord
   attr_reader :root
@@ -10,6 +12,7 @@ class Chord
   # TODO: Only chords with 4 notes are available at the moment.
   class << self; attr_reader :chord_types end
   @chord_types = [:maj7, :seventh, :minor7, :halfdim, :dim7]
+
   class << self; attr_reader :inversions end
   @inversions = [:root, :first, :second, :third]
 
@@ -26,18 +29,7 @@ class Chord
   # Text form of accord symbol
   #
   def chord_type_symbol
-    case @chord_type
-    when :maj7
-      "maj7"
-    when :seventh
-      "7"
-    when :minor7
-      "-7"
-    when :halfdim
-      "-7(b5)"
-    when :dim7
-      "o7"
-    end
+    Chord::Type.create(@chord_type).in_chord_symbol
   end
 
   def akkordlage_in_chord_symbol
@@ -98,20 +90,6 @@ class Chord
   protected
 
   def norm_interval_structure
-    case @chord_type
-    when :maj7
-      [ "1", "3", "5", "7" ]
-    when :seventh
-      [ "1", "3", "5", "b7" ]
-    when :minor7
-      [ "1", "b3", "5", "b7" ]
-    when :halfdim
-      [ "1", "b3", "b5", "b7" ]
-    when :dim7
-      [ "1", "b3", "b5", "6" ]
-    else
-      [ "unknown chord type" ]
-    end
+    Chord::Type.create(@chord_type).norm_interval_structure
   end
-
 end

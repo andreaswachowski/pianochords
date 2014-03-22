@@ -1,0 +1,23 @@
+class Chord; end;
+class Chord::Type; end;
+class Chord::Type::Dim7
+  def self.in_chord_symbol
+    "o7"
+  end
+
+  def self.norm_interval_structure
+    [ "1", "b3", "b5", "6" ]
+  end
+
+  def self.anki_filename
+    "dim7"
+  end
+
+  def self.anki_tag
+    "vermindert"
+  end
+
+  def self.html_symbol
+    "o7"
+  end
+end
