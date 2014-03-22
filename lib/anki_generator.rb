@@ -15,7 +15,7 @@ require 'logger'
 class AnkiGenerator
 
 
-  def initialize(pngdirectory = "png", ankifile = "ankichords.txt", loglevel = Logger::WARN, logtarget = STDERR)
+  def initialize(pngdirectory = "png", ankifile = "ankichords.txt", force = false, loglevel = Logger::WARN, logtarget = STDERR)
     @log = Logger.new(logtarget)
     @log.level = loglevel
 
@@ -28,7 +28,7 @@ class AnkiGenerator
       @log.debug "Using existing directory #{pngdirectory} to hold PNG files ..."
     end
 
-    if File.exists?(ankifile)
+    if (File.exists?(ankifile) && !force)
       raise ArgumentError.new("File #{ankifile} exists already, aborting.")
     end
 
@@ -37,7 +37,7 @@ class AnkiGenerator
   end
 
   # Expects a filename in which to store the anki deck information.
-  def generate(file, root_notes = Note.note_symbols, chordtypes = Chord.chord_types, inversions = Chord.inversions)
+  def generate(root_notes = Note.note_symbols, chordtypes = Chord.chord_types, inversions = Chord.inversions)
     File::open(@ankifile, "w") do |f|
       originaldir = Dir.pwd
       Dir.chdir(@pngdirectory)

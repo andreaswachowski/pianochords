@@ -25,15 +25,22 @@ Make sure you follow the advise in [Anki's section on Importing
 Media](http://ankisrs.net/docs/manual.html#importing-media).
 
 ### Using the generator
+Run
+    bin/pianochords help generate
+
+for an overview of options.
+
+For a start, try
+    bin/pianochords generate -r c
 
 ## Prerequisites
 You need LaTeX with the [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano).
 And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
 
 ## Development
-Start reading `tc_anki_generator.rb` and descend from there.
+Start reading `bin/pianochords`, or skip directly to `lib/anki_chord_generator.rb` and descend from there.
 
-Run the tests with `ruby ts_all.rb`
+Run the tests with `rake test`
 
 ## Remarks and open issues
 * Currently, there is no usable command line functionality. To generate a
