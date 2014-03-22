@@ -1,4 +1,4 @@
-require_relative "anki_chord_writer"
+require_relative "../lib/anki_chord_writer"
 require "test/unit"
 
 class TestAnkiChordWriter < Test::Unit::TestCase

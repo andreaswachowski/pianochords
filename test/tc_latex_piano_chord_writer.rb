@@ -1,4 +1,4 @@
-require_relative "latex_piano_chord_writer"
+require_relative "../lib/latex_piano_chord_writer"
 require "test/unit"
 
 class TestLaTeXPianoChordWriter < Test::Unit::TestCase

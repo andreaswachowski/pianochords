@@ -1,4 +1,4 @@
-require_relative "interval"
+require_relative "../lib/interval"
 require "test/unit"
 
 class TestInterval < Test::Unit::TestCase

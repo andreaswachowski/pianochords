@@ -1,4 +1,4 @@
-require_relative "anki_note_writer"
+require_relative "../lib/anki_note_writer"
 require "test/unit"
 
 class TestAnkiNoteWriter < Test::Unit::TestCase

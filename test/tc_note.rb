@@ -1,4 +1,4 @@
-require_relative "note"
+require_relative "../lib/note"
 require "test/unit"
 
 class TestNote < Test::Unit::TestCase

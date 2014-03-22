@@ -1,5 +1,5 @@
-require_relative "chord"
-require_relative "note_test_helper"
+require_relative "../lib/chord"
+require_relative "../lib/note_test_helper"
 require "test/unit"
 
 class TestChord < Test::Unit::TestCase

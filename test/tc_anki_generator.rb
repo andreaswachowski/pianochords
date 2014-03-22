@@ -1,4 +1,4 @@
-require_relative "anki_generator"
+require_relative "../lib/anki_generator"
 require "logger"
 require "test/unit"
 require 'fileutils'
