@@ -11,14 +11,20 @@ chords in order to be able to read lead sheets.
 You can use this program to generate an [Anki deck](http://ankisrs.net/)
 containing basic question/answer pairs as follows:
 
-[![sample question answer pair](/example.png "A sample question/answer pair")
+![sample question answer pair](/example.png "A sample question/answer pair")
 
 Various chord types are supported (e.g. maj7, dominant 7th, minor 7th, halfdiminished,
 diminished) as are different inversions (to the right of the chord symbol
 is a circled number, representing the topmost chord interval).
 
 ## Usage
-TBD
+### For the impatient
+There's a pre-generated deck available. Just download
+`pianochords_ankideck.tgz` and [import it in Anki](http://ankisrs.net/docs/manual.html#importing).
+Make sure you follow the advise in [Anki's section on Importing
+Media](http://ankisrs.net/docs/manual.html#importing-media).
+
+### Using the generator
 
 ## Prerequisites
 You need LaTeX with the [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano).
