@@ -42,6 +42,9 @@ For a start, try
 
     bin/pianochords generate -r c
 
+This creates a file `ankichords.txt` containing question/answer pairs for the four
+inversions of Cmaj7, and a directory `png` containing the four corresponding PNG files.
+
 Run
 
     bin/pianochords
