@@ -13,9 +13,17 @@ containing basic question/answer pairs as follows:
 
 ![sample question answer pair](/example.png "A sample question/answer pair")
 
-Various chord types are supported (e.g. maj7, dominant 7th, minor 7th, halfdiminished,
-diminished) as are different inversions (to the right of the chord symbol
-is a circled number, representing the topmost chord interval).
+The question is the chord symbol, the answer is the layout of the chord on
+the piano keyboard.
+
+Imagine sitting at the piano with the mobile version of Anki on a table,
+practicing chords. Having said that, you could just as well practice purely
+mentally while on the road.
+
+Various chord types (e.g. maj7, dominant, half-diminished, etc.) are supported 
+as are different inversions (first, second, ...). In the example above, the
+circled number represents the chord interval that appears highest in
+the chord.
 
 ## Usage
 ### For the impatient
@@ -23,6 +31,11 @@ There's a pre-generated deck available. Just download
 `pianochords_ankideck.tgz` and [import it in Anki](http://ankisrs.net/docs/manual.html#importing).
 Make sure you follow the advise in [Anki's section on Importing
 Media](http://ankisrs.net/docs/manual.html#importing-media).
+
+To practice for a song, analyse the lead sheet at the piano and find the
+chord inversions you are going to use. Then tag the corresponding chords in
+the deck, e.g. with `song:all_the_things_you_are`. Create a filtered deck
+using that tag, and practice exactly the chords you need.
 
 ### Using the generator
 For a start, try
