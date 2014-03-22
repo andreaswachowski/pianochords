@@ -26,11 +26,13 @@ Media](http://ankisrs.net/docs/manual.html#importing-media).
 
 ### Using the generator
 Run
+
     bin/pianochords help generate
 
 for an overview of options.
 
 For a start, try
+
     bin/pianochords generate -r c
 
 ## Prerequisites
