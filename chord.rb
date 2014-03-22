@@ -43,7 +43,7 @@ class Chord
   def akkordlage_in_chord_symbol
     case akkordlage
     when :septlage
-      "(1)"
+      "(7)"
     when :oktavlage
       "(8)"
     when :terzlage

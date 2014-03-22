@@ -26,7 +26,7 @@ class AnkiChordWriter
   def akkordlage_to_html_symbol
     case @chord.akkordlage
     when :septlage
-      "&#9312;"
+      "&#9318;"
     when :oktavlage
       "&#9319;"
     when :terzlage
@@ -53,7 +53,7 @@ class AnkiChordWriter
   def akkordlage_for_filename
     case @chord.akkordlage
     when :septlage
-      "1"
+      "7"
     when :oktavlage
       "8"
     when :terzlage

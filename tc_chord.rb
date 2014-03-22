@@ -69,8 +69,8 @@ class TestChord < Test::Unit::TestCase
   end
 
   def test_to_symbol
-    assert_equal("Cmaj7 (1)",Chord.new.to_symbol)
-    assert_equal("C7 (1)",Chord.new("C",:seventh).to_symbol)
+    assert_equal("Cmaj7 (7)",Chord.new.to_symbol)
+    assert_equal("C7 (7)",Chord.new("C",:seventh).to_symbol)
     assert_equal("C-7 (8)",Chord.new("C",:minor7,:first).to_symbol)
     assert_equal("Co7 (3)",Chord.new("C",:dim7,:second).to_symbol)
     assert_equal("C-7(b5) (5)",Chord.new("C",:halfdim,:third).to_symbol)

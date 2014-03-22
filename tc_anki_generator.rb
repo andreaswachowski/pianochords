@@ -44,7 +44,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     ankifile = "ankichord_generatortest.tst"
     dirname = "/tmp/ankipng"
     ankiGenerator = AnkiGenerator.new(dirname,ankifile,Logger::INFO)
-    ankiGenerator.generate(ankifile)
+    ankiGenerator.generate(ankifile,Note.note_symbols,Chord.chord_types, [ :root ] )
   end
   
   def teardown
