@@ -25,15 +25,19 @@ Make sure you follow the advise in [Anki's section on Importing
 Media](http://ankisrs.net/docs/manual.html#importing-media).
 
 ### Using the generator
+For a start, try
+
+    bin/pianochords generate -r c
+
 Run
+
+    bin/pianochords
+
+or better
 
     bin/pianochords help generate
 
 for an overview of options.
-
-For a start, try
-
-    bin/pianochords generate -r c
 
 ## Prerequisites
 You need LaTeX with the [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano).
