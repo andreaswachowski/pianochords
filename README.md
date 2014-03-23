@@ -16,9 +16,8 @@ containing basic question/answer pairs as follows:
 The question is the chord symbol, the answer is the layout of the chord on
 the piano keyboard.
 
-Imagine sitting at the piano with the mobile version of Anki on a table,
-practicing chords. Having said that, you could just as well practice purely
-mentally while on the road.
+Imagine sitting at the piano with the mobile version of Anki on an iPad or similar,
+practicing chords, or practicing mentally while on the road.
 
 Various chord types (e.g. maj7, dominant, half-diminished, etc.) are supported 
 as are different inversions (first, second, ...). In the example above, the
@@ -30,12 +29,11 @@ the chord.
 There's a pre-generated deck available. Just download
 `pianochords_ankideck.tgz` and [import it in Anki](http://ankisrs.net/docs/manual.html#importing).
 Make sure you follow the advise in [Anki's section on Importing
-Media](http://ankisrs.net/docs/manual.html#importing-media).
+Media](http://ankisrs.net/docs/manual.html#importing-media). Alternatively, use the [shared deck provided at Ankiweb](https://ankiweb.net/shared/info/946752090).
 
-To practice for a song, analyse the lead sheet at the piano and find the
-chord inversions you are going to use. Then tag the corresponding chords in
-the deck, e.g. with `song:all_the_things_you_are`. Create a filtered deck
-using that tag, and practice exactly the chords you need.
+If you want to learn just certain chords, for example while practicing a particular piece, analyse the 
+lead sheet at the piano and find the chord inversions you are going to use. Then tag the corresponding chords in
+the deck, e.g. with `song:all_the_things_you_are`. Now use the tag to create a filtered deck, and practice exactly the chords you need.
 
 ### Using the generator
 For a start, try
@@ -56,8 +54,7 @@ or better
 for an overview of options.
 
 ## Prerequisites
-You need LaTeX with the [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano).
-And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
+You need LaTeX with [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano) and [standalone.cls](http://www.ctan.org/tex-archive/macros/latex/contrib/standalone). And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
 
 ## Development
 Start reading `bin/pianochords`, or skip directly to `lib/anki_chord_generator.rb` and descend from there.
