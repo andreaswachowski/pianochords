@@ -1,11 +1,10 @@
 require_relative "chord"
 require_relative "anki_note_writer"
-require_relative "anki_chord_type_writer"
 
 class AnkiChordWriter
   def initialize(chord)
     @chord = chord
-    @chordtypewriter = AnkiChordTypeWriter.new(@chord.chord_type)
+    @chordtype = Chord::Type.create(@chord.chord_type)
   end
 
   # Generate a textual representation of the chord name
@@ -15,7 +14,7 @@ class AnkiChordWriter
   end
 
   def filename
-    "pianochord_#{@chord.root.pitch_name}_#{@chordtypewriter.for_filename}_#{akkordlage_for_filename}.png"
+    "pianochord_#{@chord.root.pitch_name}_#{@chordtype.anki_filename}_#{akkordlage_for_filename}.png"
   end
 
   def answer
@@ -39,11 +38,11 @@ class AnkiChordWriter
   # protected (could be, but are not for the sake of testability)
 
   def tags
-    "root:#{@chord.root.pitch_name} chordtype:#{@chordtypewriter.to_tag} lage:#{@chord.akkordlage}"
+    "root:#{@chord.root.pitch_name} chordtype:#{@chordtype.anki_tag} lage:#{@chord.akkordlage}"
   end
 
   def to_html_symbol
-    "#{AnkiNoteWriter.new(@chord.root).to_html_symbol}#{@chordtypewriter.html_symbol}&emsp;<sup>#{akkordlage_to_html_symbol}</sup>"
+    "#{AnkiNoteWriter.new(@chord.root).to_html_symbol}<sup>#{@chordtype.html_symbol}</sup>&emsp;<sup>#{akkordlage_to_html_symbol}</sup>"
   end
 
   def importfile_line

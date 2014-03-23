@@ -35,12 +35,33 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def test_generate
-    c = Chord.new("As",:maj7,:third)
-    l=LaTeXPianoChordWriter.new(c)
-    l.expects(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
-    ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
-    ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ],l)
-    File.delete(@ankifile)
+    begin
+      c = Chord.new("As",:maj7,:third)
+      l=LaTeXPianoChordWriter.new(c)
+      l.expects(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
+      ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
+      ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ],l)
+      # Make sure one anki record is written to the file
+      count = %x{wc -l #{@ankifile}}.split.first.to_i
+      assert_equal(1,count)
+      File.delete(@ankifile)
+    end
+    begin
+      c = Chord.new("As",:maj7,:third)
+      l=LaTeXPianoChordWriter.new(c)
+      l.stubs(:generate_png).returns(true)
+      ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
+
+      ankiGenerator.generate([ "As" ], [ :maj7 ], Chord::Type.all_inversions,l)
+      count = %x{wc -l #{@ankifile}}.split.first.to_i
+      assert_equal(4,count) # A maj7 has four possible inversions
+      File.delete(@ankifile)
+
+      ankiGenerator.generate([ "As" ], [ :aug, :maj7 ], Chord::Type.all_inversions,l)
+      count = %x{wc -l #{@ankifile}}.split.first.to_i
+      assert_equal(7,count) # aug has 3 possible inversions, maj7 has 4
+      File.delete(@ankifile)
+    end
   end
 
   #def test_generate_all

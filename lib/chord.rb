@@ -4,32 +4,41 @@ require_relative 'chord/type.rb'
 
 class Chord
   attr_reader :root
-  attr_reader :chord_type
   attr_reader :inversion
 
   # cf. http://www.ctan.org/tex-archive/macros/latex/contrib/piano
 
   # TODO: Only chords with 4 notes are available at the moment.
   class << self; attr_reader :chord_types end
-  @chord_types = [:maj7, :seventh, :minor7, :halfdim, :dim7]
+  #@chord_types = [:maj7, :seventh, :minor7, :halfdim, :dim7]
+  @chord_types = Chord::Type.all.map { |c| c.downcase }
 
   class << self; attr_reader :inversions end
-  @inversions = [:root, :first, :second, :third]
+  @inversions = Chord::Type.all_inversions
 
   def initialize(root=Note.new(48),chord_type=:maj7,inversion=:root)
     raise ArgumentError.new("chord_type must be one of #{Chord.chord_types.to_s}") \
            unless Chord.chord_types.include?(chord_type)
-    raise ArgumentError.new("inversion must be one of #{Chord.inversions.to_s}") \
-           unless Chord.inversions.include?(inversion)
+    @chord_type = Chord::Type.create(chord_type)
+
+    raise ArgumentError.new("inversion must be one of #{self.inversions.to_s}") \
+           unless self.inversions.include?(inversion)
     @root = root.instance_of?(Note) ? root : Note.new(root)
-    @chord_type = chord_type
     @inversion = inversion
   end
 
-  # Text form of accord symbol
-  #
+  # A triad has 3 inversions, seventh chords have 4
+  # extend chords have 5 (or more)
+  def inversions
+    Chord.inversions[0..@chord_type.norm_interval_structure.size-1]
+  end
+
+  def chord_type
+    @chord_type.name.downcase.sub(/chord::type::/,'').to_sym
+  end
+
   def chord_type_symbol
-    Chord::Type.create(@chord_type).in_chord_symbol
+    @chord_type.in_chord_symbol
   end
 
   def akkordlage_in_chord_symbol
@@ -52,15 +61,19 @@ class Chord
   # Akkordlage = German, expresses the topmost interval within the chord.
   # Another way of designating the inversions
   def akkordlage
+    # lagen     [ :oktavlage, :terzlage, :quintlage, :septlage ]
+    # 7th-chord [ :first,     :second,   :third,     :root ]
+    # triad     [ :first,     :second,   :root ]
+
     case @inversion
-    when :root
-      :septlage
     when :first
       :oktavlage
     when :second
       :terzlage
     when :third
       :quintlage
+    when :root
+      inversions.size == 3 ? :quintlage : :septlage
     end
   end
 
@@ -88,8 +101,7 @@ class Chord
   end
 
   protected
-
   def norm_interval_structure
-    Chord::Type.create(@chord_type).norm_interval_structure
+    @chord_type.norm_interval_structure
   end
 end

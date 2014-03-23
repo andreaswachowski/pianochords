@@ -1,6 +1,6 @@
 class Chord; end;
 class Chord::Type; end;
-class Chord::Type::Dim7
+class Chord::Type::Dim7 < Chord::Type
   def self.in_chord_symbol
     "o7"
   end

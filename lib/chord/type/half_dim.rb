@@ -1,6 +1,6 @@
 class Chord; end;
 class Chord::Type; end;
-class Chord::Type::HalfDim
+class Chord::Type::HalfDim < Chord::Type
   def self.in_chord_symbol
     "-7(b5)"
   end

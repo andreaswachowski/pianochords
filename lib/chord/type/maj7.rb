@@ -1,6 +1,6 @@
 class Chord; end;
 class Chord::Type; end;
-class Chord::Type::Maj7
+class Chord::Type::Maj7 < Chord::Type
   def self.in_chord_symbol
     "maj7"
   end
