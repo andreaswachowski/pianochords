@@ -11,19 +11,35 @@ class PianoChords < Thor
   option :outdir, :aliases => "-d", :default => "png", :desc => "The directory where the PNG files will be saved."
   # TODO option :logfile, :default => "STDOUT", :desc => "A log file, if only to see how the generation procedes."
   option :force, :aliases => "-f", :default => false, :desc => "If true, overwrite existing files."
-  option :loglevel, :default => Logger::INFO, :desc => "Set this to #{Logger::FATAL} (fatal), #{Logger::WARN} (warn), #{Logger::INFO} (info), or #{Logger::DEBUG} (debug)."
+  option :loglevel, :aliases => "-l", :default => "INFO", :desc => "Set this to DEBUG, INFO, WARN, or FATAL."
   option :roots, :aliases => "-r", :type => :array, :required => true, :desc => "The roots for the chords to generate. Possible values: #{Note.note_symbols}, or \"all\""
   option :chord_types, :aliases => "-t", :type => :array, :default => [ :maj7 ], :desc => "Chord types. Possible values: #{Chord.chord_types.map { |t| t.to_s }}, or \"all\""
   option :inversions, :aliases => "-i", :type => :array, :default => Chord.inversions, :desc => "Chord inversions. Possible values: #{Chord.inversions.map { |i| i.to_s }}, or \"all\""
 
   def generate
-    a = AnkiGenerator.new(options[:outdir],options[:outfile],options[:force],options[:loglevel])
+    a = AnkiGenerator.new(options[:outdir],options[:outfile],options[:force],PianoChords.loglevel(options[:loglevel]))
 
     roots = options[:roots] == "all" ? Note.note_symbols : options[:roots]
     chord_types = options[:chord_types] == [ "all" ] ? Chord.chord_types : options[:chord_types].map { |t| t.to_sym }
     inversions = options[:inversions] == [ "all" ] ? Chord.inversions : options[:inversions].map { |i| i.to_sym }
 
     a.generate(roots,chord_types,inversions)
+  end
+
+  def self.loglevel(loglevel)
+    case loglevel.downcase
+    when "info"
+      Logger::INFO
+    when "debug"
+      Logger::DEBUG
+    when "warn"
+      Logger::WARN
+    when "fatal"
+      Logger::FATAL
+    else
+      puts "Unknown loglevel #{loglevel}, defaulting to info"
+      Logger::INFO
+    end
   end
 end
 

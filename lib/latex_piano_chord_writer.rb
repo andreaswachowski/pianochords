@@ -30,7 +30,7 @@ class LaTeXPianoChordWriter
     # remove all auxiliary files
     [ "aux", "dvi", "log", "ps" ].each do |ext|
       name = "#{file_prefix}.#{ext}"
-      File.delete(name) #if File.exists?(name)
+      File.delete(name) if File.exists?(name)
     end
     File.delete(texfile)
   end
