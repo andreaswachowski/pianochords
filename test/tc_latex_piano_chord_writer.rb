@@ -1,5 +1,5 @@
 require_relative "../lib/latex_piano_chord_writer"
-require "test/unit"
+require_relative "test_helper"
 
 class TestLaTeXPianoChordWriter < Test::Unit::TestCase
   def test_to_s
@@ -7,6 +7,10 @@ class TestLaTeXPianoChordWriter < Test::Unit::TestCase
     assert_equal("\keyboard[Eo][Go][Bo][Ct]",LaTeXPianoChordWriter.new(Chord.new("C",:maj7,:first)).to_s)
     assert_equal("\keyboard[Go][Bo][Ct][Et]",LaTeXPianoChordWriter.new(Chord.new("C",:maj7,:second)).to_s)
     assert_equal("\keyboard[Bo][Ct][Et][Gt]",LaTeXPianoChordWriter.new(Chord.new("C",:maj7,:third)).to_s)
+  end
+
+  def test_generate_png
+    # TODO
   end
 
   def test_to_document

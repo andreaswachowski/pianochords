@@ -1,6 +1,6 @@
 require_relative "../lib/chord"
-require_relative "../lib/note_test_helper"
-require "test/unit"
+require_relative "note_test_helper"
+require_relative "test_helper"
 
 class TestChord < Test::Unit::TestCase
   def test_initialize

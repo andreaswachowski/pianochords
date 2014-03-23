@@ -1,5 +1,5 @@
 require_relative "../lib/interval"
-require "test/unit"
+require_relative "test_helper"
 
 class TestInterval < Test::Unit::TestCase
   def test_initialize

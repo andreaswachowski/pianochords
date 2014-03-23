@@ -1,6 +1,5 @@
 require_relative "../lib/anki_generator"
-require "logger"
-require "test/unit"
+require_relative "test_helper"
 require 'fileutils'
 
 class TestAnkiGenerator < Test::Unit::TestCase

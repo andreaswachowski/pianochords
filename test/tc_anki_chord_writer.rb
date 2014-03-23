@@ -1,5 +1,5 @@
 require_relative "../lib/anki_chord_writer"
-require "test/unit"
+require_relative "test_helper"
 
 class TestAnkiChordWriter < Test::Unit::TestCase
   def test_question

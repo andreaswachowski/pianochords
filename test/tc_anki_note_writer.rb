@@ -1,5 +1,5 @@
 require_relative "../lib/anki_note_writer"
-require "test/unit"
+require_relative "test_helper"
 
 class TestAnkiNoteWriter < Test::Unit::TestCase
   def test_to_html_symbol

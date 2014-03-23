@@ -1,5 +1,5 @@
 require_relative "../lib/note"
-require "test/unit"
+require_relative "test_helper"
 
 class TestNote < Test::Unit::TestCase
   def test_initialize
