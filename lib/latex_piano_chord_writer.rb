@@ -1,8 +1,10 @@
 require_relative "note"
 require_relative "chord"
 require_relative "anki_chord_writer"
+require_relative "logging"
 
 class LaTeXPianoChordWriter
+  include Logging
 
   # In particular, the keys go 
   # Co, Cso, Do, Dso, Eo, Fo, Fso, Go, Gso, Ao, Aso, Bo,
@@ -22,11 +24,13 @@ class LaTeXPianoChordWriter
     File.open(texfile,'w') do |f|
       f << to_document(png_filename)
     end
-    rc = system("latex -shell-escape #{texfile} >/dev/null 2>&1")
+    rc = system("latex -shell-escape #{texfile} >/dev/null 2>&1") || \
+      logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
 
     # remove all auxiliary files
     [ "aux", "dvi", "log", "ps" ].each do |ext|
-      File.delete("#{file_prefix}.#{ext}")
+      name = "#{file_prefix}.#{ext}"
+      File.delete(name) #if File.exists?(name)
     end
     File.delete(texfile)
   end
