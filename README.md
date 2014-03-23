@@ -29,12 +29,11 @@ the chord.
 There's a pre-generated deck available. Just download
 `pianochords_ankideck.tgz` and [import it in Anki](http://ankisrs.net/docs/manual.html#importing).
 Make sure you follow the advise in [Anki's section on Importing
-Media](http://ankisrs.net/docs/manual.html#importing-media).
+Media](http://ankisrs.net/docs/manual.html#importing-media). Alternatively, use the [shared deck provided at Ankiweb](https://ankiweb.net/shared/info/946752090).
 
-To practice for a song, analyse the lead sheet at the piano and find the
-chord inversions you are going to use. Then tag the corresponding chords in
-the deck, e.g. with `song:all_the_things_you_are`. Create a filtered deck
-using that tag, and practice exactly the chords you need.
+If you want to learn just certain chords, for example while practicing a particular piece, analyse the 
+lead sheet at the piano and find the chord inversions you are going to use. Then tag the corresponding chords in
+the deck, e.g. with `song:all_the_things_you_are`. Now use the tag to create a filtered deck, and practice exactly the chords you need.
 
 ### Using the generator
 For a start, try
