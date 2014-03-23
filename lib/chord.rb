@@ -37,10 +37,6 @@ class Chord
     @chord_type.name.downcase.sub(/chord::type::/,'').to_sym
   end
 
-  def chord_type_symbol
-    @chord_type.in_chord_symbol
-  end
-
   def akkordlage_in_chord_symbol
     case akkordlage
     when :terzlage
@@ -59,7 +55,7 @@ class Chord
   end
 
   def to_symbol
-    "#{@root.pitch_name}#{chord_type_symbol} #{akkordlage_in_chord_symbol}"
+    "#{@root.pitch_name}#{@chord_type.in_chord_symbol} #{akkordlage_in_chord_symbol}"
   end
 
   # Akkordlage = German, expresses the topmost interval within the chord.
@@ -86,13 +82,13 @@ class Chord
   def interval_structure
     case @inversion
     when :root
-      norm_interval_structure
+      @chord_type.norm_interval_structure
     when :first
-      norm_interval_structure.rotate
+      @chord_type.norm_interval_structure.rotate
     when :second
-      norm_interval_structure.rotate(2)
+      @chord_type.norm_interval_structure.rotate(2)
     when :third
-      norm_interval_structure.rotate(3)
+      @chord_type.norm_interval_structure.rotate(3)
     end
   end
 
@@ -104,10 +100,5 @@ class Chord
       root_found = root_found || (i.interval == "1")
       root_found ? @root+i : @root+i-oktave
     }
-  end
-
-  protected
-  def norm_interval_structure
-    @chord_type.norm_interval_structure
   end
 end
