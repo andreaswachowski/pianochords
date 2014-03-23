@@ -39,8 +39,8 @@ class AnkiGenerator
   # Expects a filename in which to store the anki deck information.
   def generate(root_notes = Note.note_symbols,
                chordtypes = Chord.chord_types,
-               inversions = Chord.inversions,
-               pngCreator = nil)
+               inversions = Chord.inversions)
+
     File.open(@ankifile, "w") do |f|
       originaldir = Dir.pwd
       Dir.chdir(@pngdirectory)
@@ -51,8 +51,7 @@ class AnkiGenerator
             c = Chord.new(root,chordtype,inversion)
             a = AnkiChordWriter.new(c)
             logger.info "Generating Anki question for #{c.to_symbol}"
-            pngCreator = pngCreator.nil? ? LaTeXPianoChordWriter.new(c) : pngCreator
-            pngCreator.generate_png(a.filename)
+            LaTeXPianoChordWriter.new(c).generate_png(a.filename)
             f.puts a.importfile_line
           end
         end

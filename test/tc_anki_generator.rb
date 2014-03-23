@@ -35,42 +35,48 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def test_generate
-    begin
-      c = Chord.new("As",:maj7,:third)
-      l=LaTeXPianoChordWriter.new(c)
-      l.expects(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
-      ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
-      ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ],l)
-      # Make sure one anki record is written to the file
-      count = %x{wc -l #{@ankifile}}.split.first.to_i
-      assert_equal(1,count)
-      File.delete(@ankifile)
-    end
-    begin
-      c = Chord.new("As",:maj7,:third)
-      l=LaTeXPianoChordWriter.new(c)
-      l.stubs(:generate_png).returns(true)
-      ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
+    # ---------------------------------------------------------------------
+    # Ensure LaTeXPianoChordWriter is called with correct file name, and
+    # Anki record is generated
+    c = Chord.new("As",:maj7,:third)
+    ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
 
-      ankiGenerator.generate([ "As" ], [ :maj7 ], Chord::Type.all_inversions,l)
-      count = %x{wc -l #{@ankifile}}.split.first.to_i
-      assert_equal(4,count) # A maj7 has four possible inversions
-      File.delete(@ankifile)
+    LaTeXPianoChordWriter.any_instance.stubs(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
+    ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ])
+    LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
-      ankiGenerator.generate([ "As" ], [ :aug, :maj7 ], Chord::Type.all_inversions,l)
-      count = %x{wc -l #{@ankifile}}.split.first.to_i
-      assert_equal(7,count) # aug has 3 possible inversions, maj7 has 4
-      File.delete(@ankifile)
-    end
+    # Make sure one anki record is written to the file
+    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    assert_equal(1,count)
+    File.delete(@ankifile)
+
+    # ---------------------------------------------------------------------
+    # Generation of all inversions for a seventh/4-tone-chord
+    c = Chord.new("As",:maj7,:third)
+
+    ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
+
+    LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
+    ankiGenerator.generate([ "As" ], [ :maj7 ], Chord::Type.all_inversions)
+    LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
+
+    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    assert_equal(4,count)
+    File.delete(@ankifile)
+
+    # ---------------------------------------------------------------------
+    # Generation of all inversions for a triad/3-tone-chord in combination
+    # with a seventh/4-tone-chord
+
+    LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
+    ankiGenerator.generate([ "As" ], [ :aug, :maj7 ], Chord::Type.all_inversions)
+    LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
+
+    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    assert_equal(7,count) # aug has 3 possible inversions, maj7 has 4
+    File.delete(@ankifile)
   end
 
-  #def test_generate_all
-  #  ankifile = "ankichord_generatortest.tst"
-  #  dirname = "/tmp/ankipng"
-  #  ankiGenerator = AnkiGenerator.new(dirname,ankifile,Logger::INFO)
-  #  ankiGenerator.generate(ankifile,Note.note_symbols,Chord.chord_types, [ :root ] )
-  #end
-  
   def teardown
     FileUtils.rm_rf(@dirname) if Dir.exists?(@dirname)
     File.delete(@ankifile) if File.exists?(@ankifile)
