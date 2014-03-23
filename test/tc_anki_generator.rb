@@ -35,8 +35,11 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def test_generate
+    c = Chord.new("As",:maj7,:third)
+    l=LaTeXPianoChordWriter.new(c)
+    l.expects(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
     ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
-    ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ])
+    ankiGenerator.generate([ "As" ], [ :maj7 ], [ :third ],l)
     File.delete(@ankifile)
   end
 

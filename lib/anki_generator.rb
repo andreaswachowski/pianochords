@@ -1,7 +1,7 @@
 require_relative "latex_piano_chord_writer"
 require_relative "anki_chord_writer"
 require_relative "chord"
-require 'logger'
+require_relative "logging"
 
 # TODO:
 # - Write pianochord_generator to be used from the command line
@@ -13,19 +13,19 @@ require 'logger'
 # - check the output of the anki_import_file (newlines correct?)
 
 class AnkiGenerator
-
+  include Logging
 
   def initialize(pngdirectory = "png", ankifile = "ankichords.txt", force = false, loglevel = Logger::WARN, logtarget = STDERR)
-    @log = Logger.new(logtarget)
-    @log.level = loglevel
+    Logging.configure_logger(logtarget)
+    logger.level = loglevel
 
     if !File.exists?(pngdirectory)
-      @log.debug "Creating directory #{pngdirectory} to hold PNG files ..."
+      logger.debug "Creating directory #{pngdirectory} to hold PNG files ..."
       Dir.mkdir(pngdirectory)
     elsif File.exists?(pngdirectory) && !File.directory?(pngdirectory)
       raise ArgumentError.new("Directory #{pngdirectory} cannot be created, a file exists instead in its place.")
     else
-      @log.debug "Using existing directory #{pngdirectory} to hold PNG files ..."
+      logger.debug "Using existing directory #{pngdirectory} to hold PNG files ..."
     end
 
     if (File.exists?(ankifile) && !force)
@@ -37,8 +37,11 @@ class AnkiGenerator
   end
 
   # Expects a filename in which to store the anki deck information.
-  def generate(root_notes = Note.note_symbols, chordtypes = Chord.chord_types, inversions = Chord.inversions)
-    File::open(@ankifile, "w") do |f|
+  def generate(root_notes = Note.note_symbols,
+               chordtypes = Chord.chord_types,
+               inversions = Chord.inversions,
+               pngCreator = nil)
+    File.open(@ankifile, "w") do |f|
       originaldir = Dir.pwd
       Dir.chdir(@pngdirectory)
       root_notes.each do |root|
@@ -46,8 +49,9 @@ class AnkiGenerator
           inversions.each do |inversion|
             c = Chord.new(root,chordtype,inversion)
             a = AnkiChordWriter.new(c)
-            @log.info "Generating Anki question for #{c.to_symbol}"
-            LaTeXPianoChordWriter.new(c).generate_png(a.filename)
+            logger.info "Generating Anki question for #{c.to_symbol}"
+            pngCreator = pngCreator.nil? ? LaTeXPianoChordWriter.new(c) : pngCreator
+            pngCreator.generate_png(a.filename)
             f.puts a.importfile_line
           end
         end

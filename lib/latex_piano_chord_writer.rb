@@ -12,7 +12,6 @@ class LaTeXPianoChordWriter
 
   def initialize(chord)
     @chord = chord
-    @ankichordwriter = AnkiChordWriter.new(@chord)
   end
 
   def generate_png(png_filename)
