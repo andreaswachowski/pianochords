@@ -16,9 +16,8 @@ containing basic question/answer pairs as follows:
 The question is the chord symbol, the answer is the layout of the chord on
 the piano keyboard.
 
-Imagine sitting at the piano with the mobile version of Anki on a table,
-practicing chords. Having said that, you could just as well practice purely
-mentally while on the road.
+Imagine sitting at the piano with the mobile version of Anki on an iPad or similar,
+practicing chords, or practicing mentally while on the road.
 
 Various chord types (e.g. maj7, dominant, half-diminished, etc.) are supported 
 as are different inversions (first, second, ...). In the example above, the
@@ -56,8 +55,7 @@ or better
 for an overview of options.
 
 ## Prerequisites
-You need LaTeX with the [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano).
-And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
+You need LaTeX with [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano) and [standalone.cls](http://www.ctan.org/tex-archive/macros/latex/contrib/standalone). And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
 
 ## Development
 Start reading `bin/pianochords`, or skip directly to `lib/anki_chord_generator.rb` and descend from there.
