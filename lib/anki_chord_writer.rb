@@ -24,14 +24,18 @@ class AnkiChordWriter
   # We use encircled numbers to signify the akkordlage
   def akkordlage_to_html_symbol
     case @chord.akkordlage
+    when :terzlage
+      "&#9314;"
+    when :quartlage
+      "&#9315;"
+    when :quintlage
+      "&#9316;"
+    when :sextlage
+      "&#9317;"
     when :septlage
       "&#9318;"
     when :oktavlage
       "&#9319;"
-    when :terzlage
-      "&#9314;"
-    when :quintlage
-      "&#9316;"
     end
   end
 
@@ -51,14 +55,18 @@ class AnkiChordWriter
 
   def akkordlage_for_filename
     case @chord.akkordlage
+    when :terzlage
+      "3"
+    when :quartlage
+      "4"
+    when :quintlage
+      "5"
+    when :sextlage
+      "6"
     when :septlage
       "7"
     when :oktavlage
       "8"
-    when :terzlage
-      "3"
-    when :quintlage
-      "5"
     end
   end
 end

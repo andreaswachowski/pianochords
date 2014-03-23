@@ -43,6 +43,13 @@ class TestChord < Test::Unit::TestCase
     assert_equal(:quintlage,Chord.new(Note.new(48),:aug, :root).akkordlage)
     assert_equal(:oktavlage,Chord.new(Note.new(48),:aug, :first).akkordlage)
     assert_equal(:terzlage,Chord.new(Note.new(48),:aug, :second).akkordlage)
+
+    # Sixth, 4 tones
+    assert_equal(:sextlage, Chord.new(Note.new(48),:sixth).akkordlage)
+    assert_equal(:sextlage, Chord.new(Note.new(48),:sixth, :root).akkordlage)
+    assert_equal(:oktavlage,Chord.new(Note.new(48),:sixth, :first).akkordlage)
+    assert_equal(:terzlage,Chord.new(Note.new(48),:sixth, :second).akkordlage)
+    assert_equal(:quintlage,Chord.new(Note.new(48),:sixth, :third).akkordlage)
   end
 
   def test_inversions

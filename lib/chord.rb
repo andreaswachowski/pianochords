@@ -43,14 +43,18 @@ class Chord
 
   def akkordlage_in_chord_symbol
     case akkordlage
+    when :terzlage
+      "(3)"
+    when :quartlage
+      "(4)"
+    when :quintlage
+      "(5)"
+    when :sextlage
+      "(6)"
     when :septlage
       "(7)"
     when :oktavlage
       "(8)"
-    when :terzlage
-      "(3)"
-    when :quintlage
-      "(5)"
     end
   end
 
@@ -61,19 +65,21 @@ class Chord
   # Akkordlage = German, expresses the topmost interval within the chord.
   # Another way of designating the inversions
   def akkordlage
-    # lagen     [ :oktavlage, :terzlage, :quintlage, :septlage ]
-    # 7th-chord [ :first,     :second,   :third,     :root ]
-    # triad     [ :first,     :second,   :root ]
-
-    case @inversion
-    when :first
+    # first -1 to get the highest interval
+    # second -1 to get rid of potential accidental
+    case interval_structure[-1][-1]
+    when "1"
       :oktavlage
-    when :second
+    when "3"
       :terzlage
-    when :third
+    when "4"
+      :quartlage
+    when "5"
       :quintlage
-    when :root
-      inversions.size == 3 ? :quintlage : :septlage
+    when "6"
+      :sextlage
+    when "7"
+      :septlage
     end
   end
 
