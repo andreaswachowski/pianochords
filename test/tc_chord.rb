@@ -30,27 +30,34 @@ class TestChord < Test::Unit::TestCase
     # assert_equal(:oktavlage,c.akkordlage)
   end
 
-  def test_akkordlage
+  def test_akkordlage_maj7
     # seventh chord with 4 tones
     assert_equal(:septlage, Chord.new(Note.new(48),:maj7).akkordlage)
     assert_equal(:septlage, Chord.new(Note.new(48),:maj7, :root).akkordlage)
     assert_equal(:oktavlage,Chord.new(Note.new(48),:maj7, :first).akkordlage)
     assert_equal(:terzlage,Chord.new(Note.new(48),:maj7, :second).akkordlage)
     assert_equal(:quintlage,Chord.new(Note.new(48),:maj7, :third).akkordlage)
+  end
 
+
+  def test_akkordlage_aug
     # Triad, 3 tones
     assert_raises(ArgumentError) { Chord.new(Note.new(48),:aug, :third) }
     assert_equal(:quintlage,Chord.new(Note.new(48),:aug, :root).akkordlage)
     assert_equal(:oktavlage,Chord.new(Note.new(48),:aug, :first).akkordlage)
     assert_equal(:terzlage,Chord.new(Note.new(48),:aug, :second).akkordlage)
+  end
 
+  def test_akkordlage_sixth
     # Sixth, 4 tones
     assert_equal(:sextlage, Chord.new(Note.new(48),:sixth).akkordlage)
     assert_equal(:sextlage, Chord.new(Note.new(48),:sixth, :root).akkordlage)
     assert_equal(:oktavlage,Chord.new(Note.new(48),:sixth, :first).akkordlage)
     assert_equal(:terzlage,Chord.new(Note.new(48),:sixth, :second).akkordlage)
     assert_equal(:quintlage,Chord.new(Note.new(48),:sixth, :third).akkordlage)
+  end
 
+  def test_akkordlage_ninth
     # rootless ninth chord with 4 tones
     assert_equal(:septlage, Chord.new(Note.new(48),:ninth).akkordlage)
     assert_equal(:septlage, Chord.new(Note.new(48),:ninth, :root).akkordlage)
@@ -76,6 +83,7 @@ class TestChord < Test::Unit::TestCase
     assert_equal([ "b7", "1", "b3", "b5" ],Chord.new(Note.new,:halfdim,:third).inverted_intervals)
     assert_equal([ "6", "1", "b3", "b5" ],Chord.new(Note.new,:dim7,:third).inverted_intervals)
     assert_equal([ "3", "5", "b7", "2" ],Chord.new(Note.new,:ninth,:first).inverted_intervals)
+    assert_equal([ "5", "b7", "2", "b3" ],Chord.new(Note.new,:minninth,:second).inverted_intervals)
   end
 
   def test_notes
