@@ -50,6 +50,13 @@ class TestChord < Test::Unit::TestCase
     assert_equal(:oktavlage,Chord.new(Note.new(48),:sixth, :first).akkordlage)
     assert_equal(:terzlage,Chord.new(Note.new(48),:sixth, :second).akkordlage)
     assert_equal(:quintlage,Chord.new(Note.new(48),:sixth, :third).akkordlage)
+
+    # rootless ninth chord with 4 tones
+    assert_equal(:septlage, Chord.new(Note.new(48),:ninth).akkordlage)
+    assert_equal(:septlage, Chord.new(Note.new(48),:ninth, :root).akkordlage)
+    assert_equal(:nonlage,Chord.new(Note.new(48),:ninth, :first).akkordlage)
+    assert_equal(:terzlage,Chord.new(Note.new(48),:ninth, :second).akkordlage)
+    assert_equal(:quintlage,Chord.new(Note.new(48),:ninth, :third).akkordlage)
   end
 
   def test_inversions
@@ -61,13 +68,14 @@ class TestChord < Test::Unit::TestCase
     end
   end
 
-  def test_interval_structure
-    assert_equal([ "1", "3", "#5" ],Chord.new(Note.new,:aug,:root).interval_structure)
-    assert_equal([ "1", "3", "5", "7" ],Chord.new(Note.new,:maj7,:root).interval_structure)
-    assert_equal([ "3", "5", "b7", "1" ],Chord.new(Note.new,:seventh,:first).interval_structure)
-    assert_equal([ "5", "b7", "1", "b3" ],Chord.new(Note.new,:minor7,:second).interval_structure)
-    assert_equal([ "b7", "1", "b3", "b5" ],Chord.new(Note.new,:halfdim,:third).interval_structure)
-    assert_equal([ "6", "1", "b3", "b5" ],Chord.new(Note.new,:dim7,:third).interval_structure)
+  def test_inverted_intervals
+    assert_equal([ "1", "3", "#5" ],Chord.new(Note.new,:aug,:root).inverted_intervals)
+    assert_equal([ "1", "3", "5", "7" ],Chord.new(Note.new,:maj7,:root).inverted_intervals)
+    assert_equal([ "3", "5", "b7", "1" ],Chord.new(Note.new,:seventh,:first).inverted_intervals)
+    assert_equal([ "5", "b7", "1", "b3" ],Chord.new(Note.new,:minor7,:second).inverted_intervals)
+    assert_equal([ "b7", "1", "b3", "b5" ],Chord.new(Note.new,:halfdim,:third).inverted_intervals)
+    assert_equal([ "6", "1", "b3", "b5" ],Chord.new(Note.new,:dim7,:third).inverted_intervals)
+    assert_equal([ "3", "5", "b7", "2" ],Chord.new(Note.new,:ninth,:first).inverted_intervals)
   end
 
   def test_notes
@@ -78,6 +86,11 @@ class TestChord < Test::Unit::TestCase
     assert_equal([ 48, 51, 54, 57 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:dim7,:root).notes)
     assert_equal([ 48, 51, 54, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:halfdim,:root).notes)
     assert_equal([ 48, 52, 56 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:aug,:root).notes)
+
+    # TODO
+    assert_equal([ 50, 52, 55, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:root).notes)
+    assert_equal([ 40, 43, 46, 50 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:first).notes)
+    assert_equal([ 43, 46, 50, 52 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:second).notes)
 
     # Inversions (notice some notes must be below the root, i.e., an octave (12 halftones) lower)
     assert_equal([ 48, 52, 55, 59 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:root).notes)

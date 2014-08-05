@@ -51,6 +51,8 @@ class Chord
       "(7)"
     when :oktavlage
       "(8)"
+    when :nonlage
+      "(9)"
     end
   end
 
@@ -63,9 +65,11 @@ class Chord
   def akkordlage
     # first -1 to get the highest interval
     # second -1 to get rid of potential accidental
-    case interval_structure[-1][-1]
+    case inverted_intervals[-1][-1]
     when "1"
       :oktavlage
+    when "2"
+      :nonlage
     when "3"
       :terzlage
     when "4"
@@ -79,7 +83,7 @@ class Chord
     end
   end
 
-  def interval_structure
+  def inverted_intervals
     case @inversion
     when :root
       @chord_type.norm_interval_structure
@@ -93,12 +97,24 @@ class Chord
   end
 
   def notes
-    intervals = interval_structure.map { |i| Interval.new(i) }
+    # I assume that the tensions are written an octave lower,
+    # that is, a 9 is a 2, a 13 is a 6, etc.
+    # Thus, the root inversion is an ascending sequence,
+    # and any other inversion are two ascending sequences, the second one
+    # usually starting with a root, or, in a rootless ninth, with the 9/2,
+    # except an octave higher.
+    # Hence we have to look for the smallest interval (and not just the
+    # root) to determine when to add an octave.
+    #
+    # Finding the minimum in the given inverted_intervals is not a numeric
+    # comparison because there are strings like "b2" or "#2".
+    intervals = inverted_intervals.map { |i| Interval.new(i) }
     oktave = Interval.new("8")
-    root_found = false
+    minimum = intervals.sort[0]
+    minimum_interval_found = false
     intervals.map { |i|
-      root_found = root_found || (i.interval == "1")
-      root_found ? @root+i : @root+i-oktave
+      minimum_interval_found = minimum_interval_found || (i == minimum)
+      minimum_interval_found ? @root+i : @root+i-oktave
     }
   end
 end

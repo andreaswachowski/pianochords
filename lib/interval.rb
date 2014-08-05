@@ -38,6 +38,30 @@ class Interval
     "#{@interval} #{@direction}"
   end
 
+  # Not sure how to properly define ==. Currently, I only care for the
+  # length, thus ignoring the direction.
+  def ==(y)
+    Interval.intervals_to_halfsteps[@interval] == Interval.intervals_to_halfsteps[y.interval] 
+  end
+
+  def <(y)
+    Interval.intervals_to_halfsteps[@interval] < Interval.intervals_to_halfsteps[y.interval] 
+  end
+
+  def <=(y)
+    (self<y) || (self==y)
+  end
+
+  def >(y)
+    y<self
+  end
+
+  def <=>(y)
+    return 0 if self == y
+    return -1 if self < y
+    return 1
+  end
+
   def -@
     Interval.new(self.interval,self.direction == :up ? :down : :up)
   end

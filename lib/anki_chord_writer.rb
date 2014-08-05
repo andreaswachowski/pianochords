@@ -36,6 +36,8 @@ class AnkiChordWriter
       "&#9318;"
     when :oktavlage
       "&#9319;"
+    when :nonlage
+      "&#9320;"
     end
   end
 
@@ -67,6 +69,8 @@ class AnkiChordWriter
       "7"
     when :oktavlage
       "8"
+    when :nonlage
+      "9"
     end
   end
 end

@@ -57,7 +57,7 @@ for an overview of options.
 You need LaTeX with [piano.sty](http://www.ctan.org/tex-archive/macros/latex/contrib/piano) and [standalone.cls](http://www.ctan.org/tex-archive/macros/latex/contrib/standalone). And Ruby, of course. I used Ruby 1.9.3 and Ruby 2.0 during development.
 
 ## Development
-Start reading `bin/pianochords`, or skip directly to `lib/anki_chord_generator.rb` and descend from there.
+Start reading `bin/pianochords`, or skip directly to `lib/anki_generator.rb` and descend from there.
 
 Run the tests with `rake test`
 
