@@ -66,6 +66,15 @@ class TestChord < Test::Unit::TestCase
     assert_equal(:quintlage,Chord.new(Note.new(48),:ninth, :third).akkordlage)
   end
 
+  def test_akkordlage_seventh_13
+    # rootless ninth chord with 4 tones
+    assert_equal(:septlage, Chord.new(Note.new(48),:seventh13).akkordlage)
+    assert_equal(:septlage, Chord.new(Note.new(48),:seventh13, :root).akkordlage)
+    assert_equal(:oktavlage,Chord.new(Note.new(48),:seventh13, :first).akkordlage)
+    assert_equal(:terzlage,Chord.new(Note.new(48),:seventh13, :second).akkordlage)
+    assert_equal(:thirteenlage,Chord.new(Note.new(48),:seventh13, :third).akkordlage)
+  end
+
   def test_inversions
     [ :maj7, :seventh, :minor7, :halfdim, :dim7 ].each do |t|
       assert_equal([ :root, :first, :second, :third ],Chord.new(Note.new,t).inversions)
@@ -84,6 +93,36 @@ class TestChord < Test::Unit::TestCase
     assert_equal([ "6", "1", "b3", "b5" ],Chord.new(Note.new,:dim7,:third).inverted_intervals)
     assert_equal([ "3", "5", "b7", "2" ],Chord.new(Note.new,:ninth,:first).inverted_intervals)
     assert_equal([ "5", "b7", "2", "b3" ],Chord.new(Note.new,:minninth,:second).inverted_intervals)
+  end
+
+  def test_tensions_one_octave_lower
+    assert_equal("1", Chord.tensions_one_octave_lower("1"));
+    assert_equal("2", Chord.tensions_one_octave_lower("2"));
+    assert_equal("3", Chord.tensions_one_octave_lower("3"));
+    assert_equal("4", Chord.tensions_one_octave_lower("4"));
+    assert_equal("5", Chord.tensions_one_octave_lower("5"));
+    assert_equal("6", Chord.tensions_one_octave_lower("6"));
+    assert_equal("7", Chord.tensions_one_octave_lower("7"));
+    assert_equal("b7", Chord.tensions_one_octave_lower("b7"));
+    assert_equal("#5", Chord.tensions_one_octave_lower("#5"));
+
+    assert_equal("b4", Chord.tensions_one_octave_lower("b11"));
+    assert_equal("#4", Chord.tensions_one_octave_lower("#11"));
+    assert_equal("4", Chord.tensions_one_octave_lower("11"));
+
+    assert_equal("b6", Chord.tensions_one_octave_lower("b13"));
+    assert_equal("#6", Chord.tensions_one_octave_lower("#13"));
+    assert_equal("6", Chord.tensions_one_octave_lower("13"));
+
+    assert_equal("b2", Chord.tensions_one_octave_lower("b9"));
+    assert_equal("#2", Chord.tensions_one_octave_lower("#9"));
+    assert_equal("2", Chord.tensions_one_octave_lower("9"));
+  end
+
+  def test_highest_interval_without_accidental
+    assert_equal("4", Chord.highest_interval_without_accidental([ "b3", "#4"]));
+    assert_equal("13", Chord.highest_interval_without_accidental([ "b3", "13"]));
+    assert_equal("9", Chord.highest_interval_without_accidental([ "4", "2", "b9"]));
   end
 
   def test_notes

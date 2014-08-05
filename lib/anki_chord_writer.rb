@@ -38,6 +38,8 @@ class AnkiChordWriter
       "&#9319;"
     when :nonlage
       "&#9320;"
+    when :thirteenlage
+      "&#9324;"
     end
   end
 
@@ -71,6 +73,8 @@ class AnkiChordWriter
       "8"
     when :nonlage
       "9"
+    when :thirteenlage
+      "13"
     end
   end
 end

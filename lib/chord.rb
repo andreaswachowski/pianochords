@@ -53,6 +53,8 @@ class Chord
       "(8)"
     when :nonlage
       "(9)"
+    when :thirteenlage
+      "(13)"
     end
   end
 
@@ -63,9 +65,7 @@ class Chord
   # Akkordlage = German, expresses the topmost interval within the chord.
   # Another way of designating the inversions
   def akkordlage
-    # first -1 to get the highest interval
-    # second -1 to get rid of potential accidental
-    case inverted_intervals[-1][-1]
+    case Chord.highest_interval_without_accidental(inverted_intervals)
     when "1"
       :oktavlage
     when "2"
@@ -80,6 +80,8 @@ class Chord
       :sextlage
     when "7"
       :septlage
+    when "13"
+      :thirteenlage
     end
   end
 
@@ -97,7 +99,7 @@ class Chord
   end
 
   def notes
-    # I assume that the tensions are written an octave lower,
+    # Tensions (9,11,13) are first converted to an octave lower,
     # that is, a 9 is a 2, a 13 is a 6, etc.
     # Thus, the root inversion is an ascending sequence,
     # and any other inversion are two ascending sequences, the second one
@@ -108,7 +110,9 @@ class Chord
     #
     # Finding the minimum in the given inverted_intervals is not a numeric
     # comparison because there are strings like "b2" or "#2".
-    intervals = inverted_intervals.map { |i| Interval.new(i) }
+    intervals = inverted_intervals.map { |i|
+      # puts "Interval: #{i}, lower: #{Chord.tensions_one_octave_lower(i)}"
+      Interval.new(Chord.tensions_one_octave_lower(i)) }
     oktave = Interval.new("8")
     minimum = intervals.sort[0]
     minimum_interval_found = false
@@ -116,5 +120,28 @@ class Chord
       minimum_interval_found = minimum_interval_found || (i == minimum)
       minimum_interval_found ? @root+i : @root+i-oktave
     }
+  end
+
+  def self.tensions_one_octave_lower(i)
+    case i
+    when /^[b#]*9$/
+      i.gsub(/9/, '2')
+
+    when /^[b#]*11$/
+      i.gsub(/11/, '4')
+
+    when /^[b#]*13$/
+      i.gsub(/13/, '6')
+
+    else
+      i
+    end
+  end
+
+  def self.highest_interval_without_accidental(interval_array)
+    # from an array of intervals, returns the last, removing
+    # any accidental.
+
+    interval_array[-1].slice(/[0-9]+/)
   end
 end
