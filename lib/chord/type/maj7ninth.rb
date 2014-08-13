@@ -19,6 +19,6 @@ class Chord::Type::Maj7Ninth < Chord::Type
   end
 
   def self.html_symbol
-    "maj7_9"
+    "maj7(9)"
   end
 end

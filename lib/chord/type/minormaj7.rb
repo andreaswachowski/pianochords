@@ -14,10 +14,10 @@ class Chord::Type::MinorMaj7 < Chord::Type
   end
 
   def self.anki_tag
-    "mollmaj7"
+    "minormaj7"
   end
 
   def self.html_symbol
-    "-maj7"
+    "&#8722;maj7"
   end
 end
