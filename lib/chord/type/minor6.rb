@@ -14,7 +14,7 @@ class Chord::Type::Minor6 < Chord::Type
   end
 
   def self.anki_tag
-    "moll6"
+    "minor6"
   end
 
   def self.html_symbol
