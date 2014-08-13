@@ -18,6 +18,6 @@ class Chord::Type::Minor7 < Chord::Type
   end
 
   def self.html_symbol
-    "-7"
+    "&#8722;7"
   end
 end
