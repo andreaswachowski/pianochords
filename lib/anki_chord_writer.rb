@@ -50,7 +50,10 @@ class AnkiChordWriter
   end
 
   def to_html_symbol
-    "#{AnkiNoteWriter.new(@chord.root).to_html_symbol}<sup>#{@chordtype.html_symbol}</sup>&emsp;<sup>#{akkordlage_to_html_symbol}</sup>"
+    # The diminished chord uses the &deg; entity which is not superscripted.
+    modifier = @chordtype.in_chord_symbol == "o" ? @chordtype.html_symbol : "<sup>#{@chordtype.html_symbol}</sup>"
+
+    "#{AnkiNoteWriter.new(@chord.root).to_html_symbol}#{modifier}&emsp;<sup>#{akkordlage_to_html_symbol}</sup>"
   end
 
   def importfile_line

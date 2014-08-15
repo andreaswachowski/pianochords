@@ -9,8 +9,8 @@ class TestAnkiChordWriter < Test::Unit::TestCase
 
   def test_to_html_symbol
     assert_equal("C<sup>maj7</sup>&emsp;<sup>&#9318;</sup>",AnkiChordWriter.new(Chord.new).to_html_symbol)
-    assert_equal("A&#9837;<sup>o7</sup>&emsp;<sup>&#9319;</sup>",AnkiChordWriter.new(Chord.new("As",:dim7,:first)).to_html_symbol)
-    assert_equal("G&#9839;<sup>o7</sup>&emsp;<sup>&#9316;</sup>",AnkiChordWriter.new(Chord.new("Gis",:dim7,:third)).to_html_symbol)
+    assert_equal("A&#9837;&deg;&emsp;<sup>&#9319;</sup>",AnkiChordWriter.new(Chord.new("As",:dim7,:first)).to_html_symbol)
+    assert_equal("G&#9839;&deg;&emsp;<sup>&#9316;</sup>",AnkiChordWriter.new(Chord.new("Gis",:dim7,:third)).to_html_symbol)
   end
 
   def test_answer

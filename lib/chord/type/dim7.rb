@@ -2,7 +2,7 @@ class Chord; end;
 class Chord::Type; end;
 class Chord::Type::Dim7 < Chord::Type
   def self.in_chord_symbol
-    "o7"
+    "o"
   end
 
   def self.norm_interval_structure
@@ -18,6 +18,6 @@ class Chord::Type::Dim7 < Chord::Type
   end
 
   def self.html_symbol
-    "o7"
+    "&deg;"
   end
 end

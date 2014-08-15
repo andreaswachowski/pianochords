@@ -92,7 +92,7 @@ class TestChord < Test::Unit::TestCase
     assert_equal([ "b7", "1", "b3", "b5" ],Chord.new(Note.new,:halfdim,:third).inverted_intervals)
     assert_equal([ "6", "1", "b3", "b5" ],Chord.new(Note.new,:dim7,:third).inverted_intervals)
     assert_equal([ "3", "5", "b7", "2" ],Chord.new(Note.new,:ninth,:first).inverted_intervals)
-    assert_equal([ "5", "b7", "2", "b3" ],Chord.new(Note.new,:minninth,:second).inverted_intervals)
+    assert_equal([ "5", "b7", "2", "b3" ],Chord.new(Note.new,:minor9,:second).inverted_intervals)
   end
 
   def test_tensions_one_octave_lower
@@ -156,7 +156,7 @@ class TestChord < Test::Unit::TestCase
     assert_equal("Cmaj7 (7)",Chord.new.to_symbol)
     assert_equal("C7 (7)",Chord.new("C",:seventh).to_symbol)
     assert_equal("C-7 (8)",Chord.new("C",:minor7,:first).to_symbol)
-    assert_equal("Co7 (3)",Chord.new("C",:dim7,:second).to_symbol)
+    assert_equal("Co (3)",Chord.new("C",:dim7,:second).to_symbol)
     assert_equal("C-7(b5) (5)",Chord.new("C",:halfdim,:third).to_symbol)
   end
 
