@@ -44,25 +44,25 @@ class Interval
 
   # Not sure how to properly define ==. Currently, I only care for the
   # length, thus ignoring the direction.
-  def ==(y)
-    Interval.intervals_to_halfsteps[@interval] == Interval.intervals_to_halfsteps[y.interval]
+  def ==(other)
+    Interval.intervals_to_halfsteps[@interval] == Interval.intervals_to_halfsteps[other.interval]
   end
 
-  def <(y)
-    Interval.intervals_to_halfsteps[@interval] < Interval.intervals_to_halfsteps[y.interval]
+  def <(other)
+    Interval.intervals_to_halfsteps[@interval] < Interval.intervals_to_halfsteps[other.interval]
   end
 
-  def <=(y)
-    (self < y) || (self == y)
+  def <=(other)
+    (self < other) || (self == other)
   end
 
-  def >(y)
-    y < self
+  def >(other)
+    other < self
   end
 
-  def <=>(y)
-    return 0 if self == y
-    return -1 if self < y
+  def <=>(other)
+    return 0 if self == other
+    return -1 if self < other
 
     return 1
   end

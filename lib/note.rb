@@ -64,24 +64,24 @@ class Note
     end
   end
 
-  def ==(note)
-    @val == note.val && @accidental == note.accidental
+  def ==(other)
+    @val == other.val && @accidental == other.accidental
   end
 
   def scientific_notation
     "#{pitch_name}#{octave_number}"
   end
 
-  def +(interval)
-    newval = @val + interval.half_steps
+  def +(other)
+    newval = @val + other.half_steps
     # TODO: The accidental in fact depends on the key, instead we arbitrarily
     # default to sharp
     accidental = Note.accidental_required?(newval) ? :sharp : nil
     Note.new(newval, accidental)
   end
 
-  def -(interval)
-    self + (-interval)
+  def -(other)
+    self + (-other)
   end
 
   def pitch_name
