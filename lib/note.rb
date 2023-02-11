@@ -152,5 +152,4 @@ class Note
   def octave_number
     @val/12
   end
-
 end

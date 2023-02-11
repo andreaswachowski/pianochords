@@ -160,5 +160,4 @@ class TestChord < Test::Unit::TestCase
     assert_equal('Co (3)', Chord.new('C', :dim7, :second).to_symbol)
     assert_equal('C-7(b5) (5)', Chord.new('C', :halfdim, :third).to_symbol)
   end
-
 end

@@ -83,5 +83,4 @@ class TestAnkiGenerator < Test::Unit::TestCase
     FileUtils.rm_rf(@dirname) if Dir.exist?(@dirname)
     File.delete(@ankifile) if File.exist?(@ankifile)
   end
-
 end

@@ -57,5 +57,4 @@ class TestLaTeXPianoChordWriter::Note < Test::Unit::TestCase
     assert_equal('B', LaTeXPianoChordWriter::Note.new(NoteTestHelper.new_note(59)).to_s)
     assert_equal('C', LaTeXPianoChordWriter::Note.new(NoteTestHelper.new_note(60)).to_s)
   end
-
 end
