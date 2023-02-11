@@ -52,9 +52,9 @@ class Note
       @val = value
       if (Note.accidental_required?(value) && accidental.nil?)
         raise ArgumentError.new("Must provide accidental for #{value} which could be either #{Note.new(value, :flat).pitch_name} or #{Note.new(value, :sharp).pitch_name}")
-      else
-        @accidental = accidental
       end
+
+      @accidental = accidental
     elsif value.instance_of?(String) && Note.note_symbols.include?(value.downcase)
       value = value.downcase
       @val = 48 + Note.offset(value)
