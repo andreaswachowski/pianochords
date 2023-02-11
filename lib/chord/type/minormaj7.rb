@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Chord; end;
-class Chord::Type; end;
+class Chord; end
+class Chord::Type; end
 class Chord::Type::MinorMaj7 < Chord::Type
   def self.in_chord_symbol
     '-maj7'

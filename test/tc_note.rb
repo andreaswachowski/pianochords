@@ -17,11 +17,11 @@ class TestNote < Test::Unit::TestCase
     end
 
     [-2, -1, 120, 121].each do |invalid_value|
-      assert_raises(ArgumentError) { Note.new(invalid_value); }
+      assert_raises(ArgumentError) { Note.new(invalid_value) }
     end
 
     (0..119).each do |valid_value|
-      assert_nothing_raised(Exception) { Note.new(valid_value,Note.accidental_required?(valid_value) ? :sharp : nil); }
+      assert_nothing_raised(Exception) { Note.new(valid_value,Note.accidental_required?(valid_value) ? :sharp : nil) }
     end
   end
 

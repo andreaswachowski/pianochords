@@ -14,8 +14,8 @@ class TestChord < Test::Unit::TestCase
     c = Chord.new('Gis',:dim7,:third)
     assert_equal('Gis',c.root.pitch_name)
 
-    assert_raises(ArgumentError) { Chord.new(Note.new(48),:invalid_chord_type); }
-    assert_raises(ArgumentError) { Chord.new(Note.new(48),:maj7,:invalid_inversion); }
+    assert_raises(ArgumentError) { Chord.new(Note.new(48),:invalid_chord_type) }
+    assert_raises(ArgumentError) { Chord.new(Note.new(48),:maj7,:invalid_inversion) }
 
     # A simple triad does not have a third inversion
     assert_raises(ArgumentError) { Chord.new('C',:aug,:third) }
@@ -98,33 +98,33 @@ class TestChord < Test::Unit::TestCase
   end
 
   def test_tensions_one_octave_lower
-    assert_equal('1', Chord.tensions_one_octave_lower('1'));
-    assert_equal('2', Chord.tensions_one_octave_lower('2'));
-    assert_equal('3', Chord.tensions_one_octave_lower('3'));
-    assert_equal('4', Chord.tensions_one_octave_lower('4'));
-    assert_equal('5', Chord.tensions_one_octave_lower('5'));
-    assert_equal('6', Chord.tensions_one_octave_lower('6'));
-    assert_equal('7', Chord.tensions_one_octave_lower('7'));
-    assert_equal('b7', Chord.tensions_one_octave_lower('b7'));
-    assert_equal('#5', Chord.tensions_one_octave_lower('#5'));
+    assert_equal('1', Chord.tensions_one_octave_lower('1'))
+    assert_equal('2', Chord.tensions_one_octave_lower('2'))
+    assert_equal('3', Chord.tensions_one_octave_lower('3'))
+    assert_equal('4', Chord.tensions_one_octave_lower('4'))
+    assert_equal('5', Chord.tensions_one_octave_lower('5'))
+    assert_equal('6', Chord.tensions_one_octave_lower('6'))
+    assert_equal('7', Chord.tensions_one_octave_lower('7'))
+    assert_equal('b7', Chord.tensions_one_octave_lower('b7'))
+    assert_equal('#5', Chord.tensions_one_octave_lower('#5'))
 
-    assert_equal('b4', Chord.tensions_one_octave_lower('b11'));
-    assert_equal('#4', Chord.tensions_one_octave_lower('#11'));
-    assert_equal('4', Chord.tensions_one_octave_lower('11'));
+    assert_equal('b4', Chord.tensions_one_octave_lower('b11'))
+    assert_equal('#4', Chord.tensions_one_octave_lower('#11'))
+    assert_equal('4', Chord.tensions_one_octave_lower('11'))
 
-    assert_equal('b6', Chord.tensions_one_octave_lower('b13'));
-    assert_equal('#6', Chord.tensions_one_octave_lower('#13'));
-    assert_equal('6', Chord.tensions_one_octave_lower('13'));
+    assert_equal('b6', Chord.tensions_one_octave_lower('b13'))
+    assert_equal('#6', Chord.tensions_one_octave_lower('#13'))
+    assert_equal('6', Chord.tensions_one_octave_lower('13'))
 
-    assert_equal('b2', Chord.tensions_one_octave_lower('b9'));
-    assert_equal('#2', Chord.tensions_one_octave_lower('#9'));
-    assert_equal('2', Chord.tensions_one_octave_lower('9'));
+    assert_equal('b2', Chord.tensions_one_octave_lower('b9'))
+    assert_equal('#2', Chord.tensions_one_octave_lower('#9'))
+    assert_equal('2', Chord.tensions_one_octave_lower('9'))
   end
 
   def test_highest_interval_without_accidental
-    assert_equal('4', Chord.highest_interval_without_accidental(['b3', '#4']));
-    assert_equal('13', Chord.highest_interval_without_accidental(['b3', '13']));
-    assert_equal('9', Chord.highest_interval_without_accidental(['4', '2', 'b9']));
+    assert_equal('4', Chord.highest_interval_without_accidental(['b3', '#4']))
+    assert_equal('13', Chord.highest_interval_without_accidental(['b3', '13']))
+    assert_equal('9', Chord.highest_interval_without_accidental(['4', '2', 'b9']))
   end
 
   def test_notes
