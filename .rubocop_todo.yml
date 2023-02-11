@@ -48,14 +48,6 @@ Style/ClassVars:
   Exclude:
     - 'lib/note.rb'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, AllowInnerBackticks.
-# SupportedStyles: backticks, percent_x, mixed
-Style/CommandLiteral:
-  Exclude:
-    - 'test/tc_anki_generator.rb'
-
 # Offense count: 25
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
@@ -116,13 +108,6 @@ Style/ParenthesesAroundCondition:
   Exclude:
     - 'lib/anki_generator.rb'
     - 'lib/note.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'test/tc_anki_generator.rb'
 
 # Offense count: 11
 # This cop supports safe autocorrection (--autocorrect).

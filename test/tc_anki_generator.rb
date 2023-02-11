@@ -48,7 +48,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
     # Make sure one anki record is written to the file
-    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    count = `wc -l #{@ankifile}`.split.first.to_i
     assert_equal(1, count)
     File.delete(@ankifile)
 
@@ -62,7 +62,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     anki_generator.generate(['As'], [:maj7], Chord::Type.all_inversions)
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
-    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    count = `wc -l #{@ankifile}`.split.first.to_i
     assert_equal(4, count)
     File.delete(@ankifile)
 
@@ -74,7 +74,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     anki_generator.generate(['As'], [:aug, :maj7], Chord::Type.all_inversions)
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
-    count = %x{wc -l #{@ankifile}}.split.first.to_i
+    count = `wc -l #{@ankifile}`.split.first.to_i
     assert_equal(7, count) # aug has 3 possible inversions, maj7 has 4
     File.delete(@ankifile)
   end
