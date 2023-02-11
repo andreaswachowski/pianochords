@@ -85,33 +85,32 @@ class Note
   end
 
   def pitch_name
-    name = case @val.modulo(12)
-           when 0
-             @accidental == :sharp ? 'Bis' : 'C'
-           when 1
-             @accidental == :sharp ? 'Cis' : 'Des'
-           when 2
-             'D'
-           when 3
-             @accidental == :sharp ? 'Dis' : 'Es'
-           when 4
-             @accidental == :flat ? 'Fes' : 'E'
-           when 5
-             @accidental == :sharp ? 'Eis' : 'F'
-           when 6
-             @accidental == :sharp ? 'Fis' : 'Ges'
-           when 7
-             'G'
-           when 8
-             @accidental == :sharp ? 'Gis' : 'As'
-           when 9
-             'A'
-           when 10
-             @accidental == :sharp ? 'Ais' : 'Bes'
-           when 11
-             @accidental == :flat ? 'Ces' : 'B'
-           end
-    name
+    case @val.modulo(12)
+    when 0
+      @accidental == :sharp ? 'Bis' : 'C'
+    when 1
+      @accidental == :sharp ? 'Cis' : 'Des'
+    when 2
+      'D'
+    when 3
+      @accidental == :sharp ? 'Dis' : 'Es'
+    when 4
+      @accidental == :flat ? 'Fes' : 'E'
+    when 5
+      @accidental == :sharp ? 'Eis' : 'F'
+    when 6
+      @accidental == :sharp ? 'Fis' : 'Ges'
+    when 7
+      'G'
+    when 8
+      @accidental == :sharp ? 'Gis' : 'As'
+    when 9
+      'A'
+    when 10
+      @accidental == :sharp ? 'Ais' : 'Bes'
+    when 11
+      @accidental == :flat ? 'Ces' : 'B'
+    end
   end
 
   # Gives the offset from a C to a given note symbol in halftones

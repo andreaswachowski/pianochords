@@ -62,12 +62,6 @@ Style/OptionalBooleanParameter:
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
-Style/RedundantAssignment:
-  Exclude:
-    - 'lib/note.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
 Style/RedundantBegin:
   Exclude:
     - 'bin/pianochords'
