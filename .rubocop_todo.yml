@@ -61,12 +61,6 @@ Style/OptionalBooleanParameter:
     - 'lib/anki_generator.rb'
 
 # Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/RedundantSort:
-  Exclude:
-    - 'lib/chord.rb'
-
-# Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/SelfAssignment:
   Exclude:

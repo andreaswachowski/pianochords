@@ -108,7 +108,7 @@ class Chord
       Interval.new(Chord.tensions_one_octave_lower(i))
     end
     oktave = Interval.new('8')
-    minimum = intervals.sort[0]
+    minimum = intervals.min
     minimum_interval_found = false
     intervals.map do |i|
       minimum_interval_found = minimum_interval_found || (i == minimum)
