@@ -9,7 +9,7 @@ class AnkiNoteWriter
 
   def to_html_symbol
     name = @note.pitch_name[0]
-    if !@note.accidental.nil?
+    unless @note.accidental.nil?
       name += @note.accidental == :sharp ? '&#9839;' : '&#9837;'
     end
     name
