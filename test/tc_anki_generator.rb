@@ -54,7 +54,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
 
     # ---------------------------------------------------------------------
     # Generation of all inversions for a seventh/4-tone-chord
-    c = Chord.new('As', :maj7, :third)
+    Chord.new('As', :maj7, :third)
 
     ankiGenerator = AnkiGenerator.new(@dirname, @ankifile, @force)
 
