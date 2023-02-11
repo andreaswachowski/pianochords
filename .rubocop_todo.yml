@@ -97,26 +97,6 @@ Layout/MultilineOperationIndentation:
   Exclude:
     - 'lib/latex_piano_chord_writer.rb'
 
-# Offense count: 297
-# This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceAfterComma:
-  Exclude:
-    - 'bin/pianochords'
-    - 'lib/anki_generator.rb'
-    - 'lib/chord.rb'
-    - 'lib/chord/type.rb'
-    - 'lib/interval.rb'
-    - 'lib/latex_piano_chord_writer.rb'
-    - 'lib/note.rb'
-    - 'test/tc_anki_chord_writer.rb'
-    - 'test/tc_anki_generator.rb'
-    - 'test/tc_anki_note_writer.rb'
-    - 'test/tc_chord.rb'
-    - 'test/tc_chord_type.rb'
-    - 'test/tc_interval.rb'
-    - 'test/tc_latex_piano_chord_writer.rb'
-    - 'test/tc_note.rb'
-
 # Offense count: 5
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.

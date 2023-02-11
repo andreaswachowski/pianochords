@@ -8,25 +8,25 @@ require_relative 'interval'
 class Note
   class << self; attr_reader :note_symbols end
 
-  @note_symbols = ['c','cis','des',
-      'd','dis','es',
-      'e','eis','fes',
-      'f','fis','ges',
-      'g','gis','as',
-      'a','ais','bes',
-      'b','bis','ces']
+  @note_symbols = ['c', 'cis', 'des',
+      'd', 'dis', 'es',
+      'e', 'eis', 'fes',
+      'f', 'fis', 'ges',
+      'g', 'gis', 'as',
+      'a', 'ais', 'bes',
+      'b', 'bis', 'ces']
 
   class << self; attr_reader :note_symbols_to_accidentals end
   @note_symbols_to_accidentals = {
      'c' => nil, 'cis' => :sharp, 'des' => :flat,
-     'd' => nil ,'dis' => :sharp, 'es'  => :flat,
+     'd' => nil , 'dis' => :sharp, 'es'  => :flat,
      'e' => nil, 'eis' => :sharp, 'fes' => :flat,
      'f' => nil, 'fis' => :sharp, 'ges' => :flat,
      'g' => nil, 'gis' => :sharp, 'as' => :flat,
      'a' => nil, 'ais' => :sharp, 'bes' => :flat,
      'b' => nil, 'bis' => :sharp, 'ces' => :flat }
 
-  @@offsets_with_accidentals = [1,3, 6, 8, 10]
+  @@offsets_with_accidentals = [1, 3, 6, 8, 10]
 
   # Notes are internally just unsigned integer values, 12 values per octave
   # Middle C is C4 (48), A4 is 440 Hz
@@ -46,11 +46,11 @@ class Note
   attr_reader :val
   attr_reader :accidental
 
-  def initialize(value=48,accidental=nil)
+  def initialize(value=48, accidental=nil)
     if ((0..119).include?(value))
       @val = value
       if (Note.accidental_required?(value) && accidental.nil?)
-        raise ArgumentError.new("Must provide accidental for #{value} which could be either #{Note.new(value,:flat).pitch_name} or #{Note.new(value,:sharp).pitch_name}")
+        raise ArgumentError.new("Must provide accidental for #{value} which could be either #{Note.new(value, :flat).pitch_name} or #{Note.new(value, :sharp).pitch_name}")
       else
         @accidental = accidental
       end
@@ -76,7 +76,7 @@ class Note
     # TODO The accidental in fact depends on the key, instead we
     # arbitrarily default to sharp
     accidental = Note.accidental_required?(newval) ? :sharp : nil
-    Note.new(newval,accidental)
+    Note.new(newval, accidental)
   end
 
   def -(interval)

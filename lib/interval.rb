@@ -29,7 +29,7 @@ class Interval
   attr_reader :interval
   attr_reader :direction
 
-  def initialize(interval,direction = :up)
+  def initialize(interval, direction = :up)
     raise ArgumentError.new('Interval must be between 1 and 7, and optionally raised with # or lowered with b') unless Interval.intervals.include?(interval)
     raise ArgumentError.new('direction must be :up or :down') unless [:up, :down].include?(direction)
     @interval = interval
@@ -65,7 +65,7 @@ class Interval
   end
 
   def -@
-    Interval.new(self.interval,self.direction == :up ? :down : :up)
+    Interval.new(self.interval, self.direction == :up ? :down : :up)
   end
 
   def half_steps

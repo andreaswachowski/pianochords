@@ -23,7 +23,7 @@ class LaTeXPianoChordWriter
     file_prefix='anki_pianofile'
     texfile="#{file_prefix}.tex"
 
-    File.open(texfile,'w') do |f|
+    File.open(texfile, 'w') do |f|
       f << to_document(png_filename)
     end
     rc = system("latex -shell-escape #{texfile} >/dev/null 2>&1") || \

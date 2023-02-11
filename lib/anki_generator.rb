@@ -50,7 +50,7 @@ class AnkiGenerator
         chordtypes.each do |chordtype|
           valid_inversions = inversions & Chord::Type::create(chordtype).inversions
           valid_inversions.each do |inversion|
-            c = Chord.new(root,chordtype,inversion)
+            c = Chord.new(root, chordtype, inversion)
             a = AnkiChordWriter.new(c)
             logger.info "Generating Anki question for #{c.to_symbol}"
             LaTeXPianoChordWriter.new(c).generate_png(a.filename)

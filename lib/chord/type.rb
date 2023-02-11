@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Dir[File.dirname(__FILE__) + '/type/*.rb'].each { |file| require file.sub(/.rb\z/,'') }
+Dir[File.dirname(__FILE__) + '/type/*.rb'].each { |file| require file.sub(/.rb\z/, '') }
 
 class Chord::Type
   class << self; attr_reader :all_inversions end

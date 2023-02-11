@@ -19,13 +19,13 @@ class PianoChords < Thor
 
   def generate
     begin
-      a = AnkiGenerator.new(options[:outdir],options[:outfile],options[:force],PianoChords.loglevel(options[:loglevel]))
+      a = AnkiGenerator.new(options[:outdir], options[:outfile], options[:force], PianoChords.loglevel(options[:loglevel]))
 
       roots = options[:roots].include?('all') ? Note.note_symbols : options[:roots]
       chord_types = options[:chord_types].include?('all') ? Chord.chord_types : options[:chord_types].map { |t| t.to_sym }
       inversions = options[:inversions].include?('all') ? Chord.inversions : options[:inversions].map { |i| i.to_sym }
 
-      a.generate(roots,chord_types,inversions)
+      a.generate(roots, chord_types, inversions)
     rescue ArgumentError => e
       if /File .* exists already. aborting./ =~ e.inspect
         puts "#{e} Specify a different outfile or use the -f option to overwrite."

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'note'
-Dir[File.dirname(__FILE__) + '/chord/type/*.rb'].each { |file| require file.sub(/.rb\z/,'') }
+Dir[File.dirname(__FILE__) + '/chord/type/*.rb'].each { |file| require file.sub(/.rb\z/, '') }
 require_relative 'chord/type.rb'
 
 class Chord
@@ -18,7 +18,7 @@ class Chord
   class << self; attr_reader :inversions end
   @inversions = Chord::Type.all_inversions
 
-  def initialize(root=Note.new(48),chord_type=:maj7,inversion=:root)
+  def initialize(root=Note.new(48), chord_type=:maj7, inversion=:root)
     raise ArgumentError.new("chord_type must be one of #{Chord.chord_types.to_s}") \
            unless Chord.chord_types.include?(chord_type)
     @chord_type = Chord::Type.create(chord_type)
@@ -36,7 +36,7 @@ class Chord
   end
 
   def chord_type
-    @chord_type.name.downcase.sub(/chord::type::/,'').to_sym
+    @chord_type.name.downcase.sub(/chord::type::/, '').to_sym
   end
 
   def akkordlage_in_chord_symbol
