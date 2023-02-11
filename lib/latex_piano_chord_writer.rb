@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'English'
 require_relative 'note'
 require_relative 'chord'
 require_relative 'anki_chord_writer'
@@ -27,7 +28,7 @@ class LaTeXPianoChordWriter
       f << to_document(png_filename)
     end
     system("latex -shell-escape #{texfile} >/dev/null 2>&1") || \
-      logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
+      logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$CHILD_STATUS}\"")
 
     # remove all auxiliary files
     %w[aux dvi log ps].each do |ext|
