@@ -6,7 +6,7 @@ require_relative "logging"
 class LaTeXPianoChordWriter
   include Logging
 
-  # In particular, the keys go 
+  # In particular, the keys go
   # Co, Cso, Do, Dso, Eo, Fo, Fso, Go, Gso, Ao, Aso, Bo,
   # Ct, Cst, Dt, Dst, Et, Ft, Fst, Gt, Gst, At, Ast, and Bt.
 
@@ -30,7 +30,7 @@ class LaTeXPianoChordWriter
     # remove all auxiliary files
     [ "aux", "dvi", "log", "ps" ].each do |ext|
       name = "#{file_prefix}.#{ext}"
-      File.delete(name) if File.exists?(name)
+      File.delete(name) if File.exist?(name)
     end
     File.delete(texfile)
   end

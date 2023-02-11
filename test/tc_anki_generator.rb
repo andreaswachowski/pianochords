@@ -11,15 +11,15 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def test_initialize
-    raise ArgumentError.new("File #{@ankifile} exists, aborting test.") if File.exists?(@ankifile)
+    raise ArgumentError.new("File #{@ankifile} exists, aborting test.") if File.exist?(@ankifile)
 
     AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel)
-    assert(Dir.exists?(@dirname))
+    assert(Dir.exist?(@dirname))
     Dir.rmdir(@dirname)
 
     Dir.mkdir(@dirname)
     assert_nothing_raised(Exception) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
-    assert(Dir.exists?(@dirname))
+    assert(Dir.exist?(@dirname))
     Dir.rmdir(@dirname)
 
     File.open(@dirname, 'w') do |f|
@@ -78,8 +78,8 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def teardown
-    FileUtils.rm_rf(@dirname) if Dir.exists?(@dirname)
-    File.delete(@ankifile) if File.exists?(@ankifile)
+    FileUtils.rm_rf(@dirname) if Dir.exist?(@dirname)
+    File.delete(@ankifile) if File.exist?(@ankifile)
   end
 
 end

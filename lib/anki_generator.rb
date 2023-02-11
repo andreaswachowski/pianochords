@@ -19,16 +19,16 @@ class AnkiGenerator
     Logging.configure_logger(logtarget)
     logger.level = loglevel
 
-    if !File.exists?(pngdirectory)
+    if !File.exist?(pngdirectory)
       logger.debug "Creating directory #{pngdirectory} to hold PNG files ..."
       Dir.mkdir(pngdirectory)
-    elsif File.exists?(pngdirectory) && !File.directory?(pngdirectory)
+    elsif File.exist?(pngdirectory) && !File.directory?(pngdirectory)
       raise ArgumentError.new("Directory #{pngdirectory} cannot be created, a file exists instead in its place.")
     else
       logger.debug "Using existing directory #{pngdirectory} to hold PNG files ..."
     end
 
-    if (File.exists?(ankifile) && !force)
+    if (File.exist?(ankifile) && !force)
       raise ArgumentError.new("File #{ankifile} exists already, aborting.")
     end
 
