@@ -16,9 +16,9 @@ class Chord::Type
     end
 
     def create(chord_type)
-      Object.const_get('Chord').
-        const_get('Type').
-        const_get("#{Chord::Type.all.select { |c| c.downcase == chord_type}.first}")
+      Object.const_get('Chord')
+            .const_get('Type')
+            .const_get("#{Chord::Type.all.select { |c| c.downcase == chord_type}.first}")
     end
   end
 end
