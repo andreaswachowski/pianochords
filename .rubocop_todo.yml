@@ -54,12 +54,6 @@ Style/Documentation:
   Enabled: false
 
 # Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/EachForSimpleLoop:
-  Exclude:
-    - 'test/tc_note.rb'
-
-# Offense count: 2
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/GlobalStdStream:
   Exclude:

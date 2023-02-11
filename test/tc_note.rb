@@ -20,7 +20,7 @@ class TestNote < Test::Unit::TestCase
       assert_raises(ArgumentError) { Note.new(invalid_value) }
     end
 
-    (0..119).each do |valid_value|
+    120.times do |valid_value|
       assert_nothing_raised(Exception) { Note.new(valid_value, Note.accidental_required?(valid_value) ? :sharp : nil) }
     end
   end
@@ -30,7 +30,7 @@ class TestNote < Test::Unit::TestCase
   end
 
   def test_scientific_notation
-    (0..9).each do |octave_number|
+    10.times do |octave_number|
       assert_equal("C#{octave_number}", Note.new(0 + octave_number * 12).scientific_notation)
     end
     assert_equal('C4', Note.new(48).scientific_notation)
