@@ -67,7 +67,7 @@ class Interval
   end
 
   def -@
-    Interval.new(self.interval, self.direction == :up ? :down : :up)
+    Interval.new(interval, direction == :up ? :down : :up)
   end
 
   def half_steps

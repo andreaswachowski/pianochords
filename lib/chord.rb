@@ -23,8 +23,8 @@ class Chord
 
     @chord_type = Chord::Type.create(chord_type)
 
-    raise ArgumentError, "inversion must be one of #{self.inversions}" \
-           unless self.inversions.include?(inversion)
+    raise ArgumentError, "inversion must be one of #{inversions}" \
+           unless inversions.include?(inversion)
 
     @root = root.instance_of?(Note) ? root : Note.new(root)
     @inversion = inversion
