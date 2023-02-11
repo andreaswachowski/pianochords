@@ -48,9 +48,9 @@ class Note
   attr_reader :accidental
 
   def initialize(value = 48, accidental = nil)
-    if ((0..119).include?(value))
+    if (0..119).include?(value)
       @val = value
-      if (Note.accidental_required?(value) && accidental.nil?)
+      if Note.accidental_required?(value) && accidental.nil?
         raise ArgumentError.new("Must provide accidental for #{value} which could be either #{Note.new(value, :flat).pitch_name} or #{Note.new(value, :sharp).pitch_name}")
       end
 

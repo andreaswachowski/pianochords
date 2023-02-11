@@ -60,14 +60,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/anki_generator.rb'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowSafeAssignment, AllowInMultilineConditions.
-Style/ParenthesesAroundCondition:
-  Exclude:
-    - 'lib/anki_generator.rb'
-    - 'lib/note.rb'
-
 # Offense count: 11
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowedCompactTypes.
