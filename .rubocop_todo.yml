@@ -55,12 +55,6 @@ Style/Documentation:
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
-Style/IfUnlessModifier:
-  Exclude:
-    - 'lib/anki_generator.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: both, prefix, postfix
 Style/NegatedIf:
