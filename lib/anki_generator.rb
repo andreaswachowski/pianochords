@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "latex_piano_chord_writer"
-require_relative "anki_chord_writer"
-require_relative "chord"
-require_relative "logging"
+require_relative 'latex_piano_chord_writer'
+require_relative 'anki_chord_writer'
+require_relative 'chord'
+require_relative 'logging'
 
 # TODO:
 # - Write pianochord_generator to be used from the command line
@@ -17,7 +17,7 @@ require_relative "logging"
 class AnkiGenerator
   include Logging
 
-  def initialize(pngdirectory = "png", ankifile = "ankichords.txt", force = false, loglevel = Logger::WARN, logtarget = STDERR)
+  def initialize(pngdirectory = 'png', ankifile = 'ankichords.txt', force = false, loglevel = Logger::WARN, logtarget = STDERR)
     Logging.configure_logger(logtarget)
     logger.level = loglevel
 
@@ -43,7 +43,7 @@ class AnkiGenerator
                chordtypes = Chord.chord_types,
                inversions = Chord.inversions)
 
-    File.open(@ankifile, "w") do |f|
+    File.open(@ankifile, 'w') do |f|
       originaldir = Dir.pwd
       Dir.chdir(@pngdirectory)
       root_notes.each do |root|

@@ -8,23 +8,23 @@ require_relative 'interval'
 class Note
   class << self; attr_reader :note_symbols end
 
-  @note_symbols = ["c","cis","des",
-      "d","dis","es",
-      "e","eis","fes",
-      "f","fis","ges",
-      "g","gis","as",
-      "a","ais","bes",
-      "b","bis","ces"]
+  @note_symbols = ['c','cis','des',
+      'd','dis','es',
+      'e','eis','fes',
+      'f','fis','ges',
+      'g','gis','as',
+      'a','ais','bes',
+      'b','bis','ces']
 
   class << self; attr_reader :note_symbols_to_accidentals end
   @note_symbols_to_accidentals = {
-     "c" => nil, "cis" => :sharp, "des" => :flat,
-     "d" => nil ,"dis" => :sharp, "es"  => :flat,
-     "e" => nil, "eis" => :sharp, "fes" => :flat,
-     "f" => nil, "fis" => :sharp, "ges" => :flat,
-     "g" => nil, "gis" => :sharp, "as" => :flat,
-     "a" => nil, "ais" => :sharp, "bes" => :flat,
-     "b" => nil, "bis" => :sharp, "ces" => :flat }
+     'c' => nil, 'cis' => :sharp, 'des' => :flat,
+     'd' => nil ,'dis' => :sharp, 'es'  => :flat,
+     'e' => nil, 'eis' => :sharp, 'fes' => :flat,
+     'f' => nil, 'fis' => :sharp, 'ges' => :flat,
+     'g' => nil, 'gis' => :sharp, 'as' => :flat,
+     'a' => nil, 'ais' => :sharp, 'bes' => :flat,
+     'b' => nil, 'bis' => :sharp, 'ces' => :flat }
 
   @@offsets_with_accidentals = [ 1,3, 6, 8, 10 ]
 
@@ -86,29 +86,29 @@ class Note
   def pitch_name
     name = case @val.modulo(12)
            when 0
-                   @accidental == :sharp ? "Bis" : "C"
+                   @accidental == :sharp ? 'Bis' : 'C'
            when 1
-                   @accidental == :sharp ? "Cis" : "Des"
+                   @accidental == :sharp ? 'Cis' : 'Des'
            when 2
-                   "D"
+                   'D'
            when 3
-                   @accidental == :sharp ? "Dis" : "Es"
+                   @accidental == :sharp ? 'Dis' : 'Es'
            when 4
-                   @accidental == :flat ? "Fes" : "E"
+                   @accidental == :flat ? 'Fes' : 'E'
            when 5
-                   @accidental == :sharp ? "Eis" : "F"
+                   @accidental == :sharp ? 'Eis' : 'F'
            when 6
-                   @accidental == :sharp ? "Fis" : "Ges"
+                   @accidental == :sharp ? 'Fis' : 'Ges'
            when 7
-                   "G"
+                   'G'
            when 8
-                   @accidental == :sharp ? "Gis" : "As"
+                   @accidental == :sharp ? 'Gis' : 'As'
            when 9
-                   "A"
+                   'A'
            when 10
-                   @accidental == :sharp ? "Ais" : "Bes"
+                   @accidental == :sharp ? 'Ais' : 'Bes'
            when 11
-                   @accidental == :flat ? "Ces" : "B"
+                   @accidental == :flat ? 'Ces' : 'B'
            end
     name
   end
@@ -117,29 +117,29 @@ class Note
   def self.offset(note_symbol)
     #TODO how to handle english names?
     case note_symbol.downcase
-    when "bis", "c"
+    when 'bis', 'c'
       0
-    when "cis", "des"
+    when 'cis', 'des'
       1
-    when "d"
+    when 'd'
       2
-    when "dis", "es"
+    when 'dis', 'es'
       3
-    when "e", "fes"
+    when 'e', 'fes'
       4
-    when "eis", "f"
+    when 'eis', 'f'
       5
-    when "fis", "ges"
+    when 'fis', 'ges'
       6
-    when "g"
+    when 'g'
       7
-    when "gis", "as"
+    when 'gis', 'as'
       8
-    when "a"
+    when 'a'
       9
-    when "ais", "bes", "bflat"
+    when 'ais', 'bes', 'bflat'
       10
-    when "b", "ces"
+    when 'b', 'ces'
       11
     else
       raise ArgumentError.new("unknown note symbol #{note_symbol}")

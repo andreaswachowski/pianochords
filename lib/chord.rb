@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'note'
-Dir[File.dirname(__FILE__) + "/chord/type/*.rb"].each { |file| require file.sub(/.rb\z/,'') }
+Dir[File.dirname(__FILE__) + '/chord/type/*.rb'].each { |file| require file.sub(/.rb\z/,'') }
 require_relative 'chord/type.rb'
 
 class Chord
@@ -42,21 +42,21 @@ class Chord
   def akkordlage_in_chord_symbol
     case akkordlage
     when :terzlage
-      "(3)"
+      '(3)'
     when :quartlage
-      "(4)"
+      '(4)'
     when :quintlage
-      "(5)"
+      '(5)'
     when :sextlage
-      "(6)"
+      '(6)'
     when :septlage
-      "(7)"
+      '(7)'
     when :oktavlage
-      "(8)"
+      '(8)'
     when :nonlage
-      "(9)"
+      '(9)'
     when :thirteenlage
-      "(13)"
+      '(13)'
     end
   end
 
@@ -68,21 +68,21 @@ class Chord
   # Another way of designating the inversions
   def akkordlage
     case Chord.highest_interval_without_accidental(inverted_intervals)
-    when "1"
+    when '1'
       :oktavlage
-    when "2"
+    when '2'
       :nonlage
-    when "3"
+    when '3'
       :terzlage
-    when "4"
+    when '4'
       :quartlage
-    when "5"
+    when '5'
       :quintlage
-    when "6"
+    when '6'
       :sextlage
-    when "7"
+    when '7'
       :septlage
-    when "13"
+    when '13'
       :thirteenlage
     end
   end
@@ -115,7 +115,7 @@ class Chord
     intervals = inverted_intervals.map { |i|
       # puts "Interval: #{i}, lower: #{Chord.tensions_one_octave_lower(i)}"
       Interval.new(Chord.tensions_one_octave_lower(i)) }
-    oktave = Interval.new("8")
+    oktave = Interval.new('8')
     minimum = intervals.sort[0]
     minimum_interval_found = false
     intervals.map { |i|

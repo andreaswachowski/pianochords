@@ -4,22 +4,22 @@ class Chord; end;
 class Chord::Type; end;
 class Chord::Type::Dim7 < Chord::Type
   def self.in_chord_symbol
-    "o"
+    'o'
   end
 
   def self.norm_interval_structure
-    [ "1", "b3", "b5", "6" ]
+    [ '1', 'b3', 'b5', '6' ]
   end
 
   def self.anki_filename
-    "dim7"
+    'dim7'
   end
 
   def self.anki_tag
-    "vermindert"
+    'vermindert'
   end
 
   def self.html_symbol
-    "&deg;"
+    '&deg;'
   end
 end

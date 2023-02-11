@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "note"
-require_relative "chord"
-require_relative "anki_chord_writer"
-require_relative "logging"
+require_relative 'note'
+require_relative 'chord'
+require_relative 'anki_chord_writer'
+require_relative 'logging'
 
 class LaTeXPianoChordWriter
   include Logging
@@ -20,7 +20,7 @@ class LaTeXPianoChordWriter
 
   def generate_png(png_filename)
     # We assume we are in the correct directory
-    file_prefix="anki_pianofile"
+    file_prefix='anki_pianofile'
     texfile="#{file_prefix}.tex"
 
     File.open(texfile,'w') do |f|
@@ -30,7 +30,7 @@ class LaTeXPianoChordWriter
       logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
 
     # remove all auxiliary files
-    [ "aux", "dvi", "log", "ps" ].each do |ext|
+    [ 'aux', 'dvi', 'log', 'ps' ].each do |ext|
       name = "#{file_prefix}.#{ext}"
       File.delete(name) if File.exist?(name)
     end
@@ -49,7 +49,7 @@ class LaTeXPianoChordWriter
     s = "\keyboard"
     octaves_offset = @chord.notes[0].val.div(12)
     @chord.notes.each { |n|
-      postfix = n.val - octaves_offset*12 < 12 ? "o" : "t"
+      postfix = n.val - octaves_offset*12 < 12 ? 'o' : 't'
       s+="[#{LaTeXPianoChordWriter::Note.new(n).to_s}#{postfix}]"
     }
     s
@@ -76,7 +76,7 @@ class LaTeXPianoChordWriter::Note
   attr_reader :note
 
   def initialize(note)
-    raise ArgumentError.new("note must be an instance of Note") \
+    raise ArgumentError.new('note must be an instance of Note') \
       unless note.instance_of?(Note)
     @note = note
   end
@@ -84,29 +84,29 @@ class LaTeXPianoChordWriter::Note
   def to_s
     case @note.val.modulo(12)
     when 0
-      "C"
+      'C'
     when 1
-      "Cs"
+      'Cs'
     when 2
-      "D"
+      'D'
     when 3
-      "Ds"
+      'Ds'
     when 4
-      "E"
+      'E'
     when 5
-      "F"
+      'F'
     when 6
-      "Fs"
+      'Fs'
     when 7
-      "G"
+      'G'
     when 8
-      "Gs"
+      'Gs'
     when 9
-      "A"
+      'A'
     when 10
-      "As"
+      'As'
     when 11
-      "B"
+      'B'
     end
   end
 end

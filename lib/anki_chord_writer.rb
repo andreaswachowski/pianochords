@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "chord"
-require_relative "anki_note_writer"
+require_relative 'chord'
+require_relative 'anki_note_writer'
 
 class AnkiChordWriter
   def initialize(chord)
@@ -27,21 +27,21 @@ class AnkiChordWriter
   def akkordlage_to_html_symbol
     case @chord.akkordlage
     when :terzlage
-      "&#9314;"
+      '&#9314;'
     when :quartlage
-      "&#9315;"
+      '&#9315;'
     when :quintlage
-      "&#9316;"
+      '&#9316;'
     when :sextlage
-      "&#9317;"
+      '&#9317;'
     when :septlage
-      "&#9318;"
+      '&#9318;'
     when :oktavlage
-      "&#9319;"
+      '&#9319;'
     when :nonlage
-      "&#9320;"
+      '&#9320;'
     when :thirteenlage
-      "&#9324;"
+      '&#9324;'
     end
   end
 
@@ -53,7 +53,7 @@ class AnkiChordWriter
 
   def to_html_symbol
     # The diminished chord uses the &deg; entity which is not superscripted.
-    modifier = @chordtype.in_chord_symbol == "o" ? @chordtype.html_symbol : "<sup>#{@chordtype.html_symbol}</sup>"
+    modifier = @chordtype.in_chord_symbol == 'o' ? @chordtype.html_symbol : "<sup>#{@chordtype.html_symbol}</sup>"
 
     "#{AnkiNoteWriter.new(@chord.root).to_html_symbol}#{modifier}&emsp;<sup>#{akkordlage_to_html_symbol}</sup>"
   end
@@ -65,21 +65,21 @@ class AnkiChordWriter
   def akkordlage_for_filename
     case @chord.akkordlage
     when :terzlage
-      "3"
+      '3'
     when :quartlage
-      "4"
+      '4'
     when :quintlage
-      "5"
+      '5'
     when :sextlage
-      "6"
+      '6'
     when :septlage
-      "7"
+      '7'
     when :oktavlage
-      "8"
+      '8'
     when :nonlage
-      "9"
+      '9'
     when :thirteenlage
-      "13"
+      '13'
     end
   end
 end

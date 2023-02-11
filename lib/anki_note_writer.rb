@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "note"
+require_relative 'note'
 
 class AnkiNoteWriter
   def initialize(note)
@@ -10,7 +10,7 @@ class AnkiNoteWriter
   def to_html_symbol
     name = @note.pitch_name[0]
     if !@note.accidental.nil?
-      name += @note.accidental == :sharp ? "&#9839;" : "&#9837;"
+      name += @note.accidental == :sharp ? '&#9839;' : '&#9837;'
     end
     name
   end
