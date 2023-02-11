@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "chord"
 require_relative "anki_note_writer"
 

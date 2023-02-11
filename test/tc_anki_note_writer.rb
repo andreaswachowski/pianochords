@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../lib/anki_note_writer"
 require_relative "test_helper"
 

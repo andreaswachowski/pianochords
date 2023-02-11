@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'interval'
 
 #  TODO Introduce key so that individual notes are 

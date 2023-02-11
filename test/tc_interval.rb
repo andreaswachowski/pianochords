@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../lib/interval"
 require_relative "test_helper"
 

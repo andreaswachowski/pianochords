@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Interval
   class << self; attr_reader :intervals end
   @intervals = [ "b1", "1", "#1", \

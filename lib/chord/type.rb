@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Dir[File.dirname(__FILE__) + "/type/*.rb"].each { |file| require file.sub(/.rb\z/,'') }
 
 class Chord::Type

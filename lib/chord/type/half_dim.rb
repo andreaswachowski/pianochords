@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Chord; end;
 class Chord::Type; end;
 class Chord::Type::HalfDim < Chord::Type

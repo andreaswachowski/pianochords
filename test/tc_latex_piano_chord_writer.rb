@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../lib/latex_piano_chord_writer"
 require_relative "test_helper"
 require_relative "note_test_helper"

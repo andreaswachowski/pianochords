@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../lib/chord"
 require_relative "note_test_helper"
 require_relative "test_helper"

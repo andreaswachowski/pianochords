@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test/unit'
 require_relative 'tc_note'
 require_relative 'tc_chord'
