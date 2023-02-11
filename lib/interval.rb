@@ -12,6 +12,7 @@ class Interval
                 '8']
 
   class << self; attr_reader :intervals_to_halfsteps end
+  # rubocop:disable Layout/HashAlignment
   @intervals_to_halfsteps =
     { 'b1' => -1, '1' => 0, '#1' => 1,
       'b2' => 1, '2' => 2, '#2' => 3,
@@ -25,6 +26,7 @@ class Interval
       'b11' => 16, '11' => 17, '#11' => 18,
       'b13' => 20, '13' => 21, '#13' => 22
   }
+  # rubocop:enable Layout/HashAlignment
 
   attr_reader :interval
   attr_reader :direction
