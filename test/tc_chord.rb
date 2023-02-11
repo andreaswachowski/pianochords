@@ -67,7 +67,7 @@ class TestChord < Test::Unit::TestCase
     assert_equal(:quintlage, Chord.new(Note.new(48), :ninth, :third).akkordlage)
   end
 
-  def test_akkordlage_seventh_13
+  def test_akkordlage_seventh13
     # rootless ninth chord with 4 tones
     assert_equal(:septlage, Chord.new(Note.new(48), :seventh13).akkordlage)
     assert_equal(:septlage, Chord.new(Note.new(48), :seventh13, :root).akkordlage)
