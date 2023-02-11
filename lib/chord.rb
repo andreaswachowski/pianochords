@@ -113,17 +113,17 @@ class Chord
     #
     # Finding the minimum in the given inverted_intervals is not a numeric
     # comparison because there are strings like "b2" or "#2".
-    intervals = inverted_intervals.map { |i|
+    intervals = inverted_intervals.map do |i|
       # puts "Interval: #{i}, lower: #{Chord.tensions_one_octave_lower(i)}"
       Interval.new(Chord.tensions_one_octave_lower(i))
-    }
+    end
     oktave = Interval.new('8')
     minimum = intervals.sort[0]
     minimum_interval_found = false
-    intervals.map { |i|
+    intervals.map do |i|
       minimum_interval_found = minimum_interval_found || (i == minimum)
       minimum_interval_found ? @root + i : @root + i - oktave
-    }
+    end
   end
 
   def self.tensions_one_octave_lower(tension)

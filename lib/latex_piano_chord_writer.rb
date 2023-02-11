@@ -48,10 +48,10 @@ class LaTeXPianoChordWriter
     # are crossing a C we continue in the next octave
     s = "\keyboard"
     octaves_offset = @chord.notes[0].val.div(12)
-    @chord.notes.each { |n|
+    @chord.notes.each do |n|
       postfix = n.val - octaves_offset * 12 < 12 ? 'o' : 't'
       s += "[#{LaTeXPianoChordWriter::Note.new(n)}#{postfix}]"
-    }
+    end
     s
   end
 
