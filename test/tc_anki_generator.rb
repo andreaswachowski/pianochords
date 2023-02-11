@@ -13,7 +13,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def test_initialize
-    raise ArgumentError.new("File #{@ankifile} exists, aborting test.") if File.exist?(@ankifile)
+    raise ArgumentError, "File #{@ankifile} exists, aborting test." if File.exist?(@ankifile)
 
     AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel)
     assert(Dir.exist?(@dirname))

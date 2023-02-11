@@ -25,12 +25,12 @@ class AnkiGenerator
       logger.debug "Creating directory #{pngdirectory} to hold PNG files ..."
       Dir.mkdir(pngdirectory)
     elsif File.exist?(pngdirectory) && !File.directory?(pngdirectory)
-      raise ArgumentError.new("Directory #{pngdirectory} cannot be created, a file exists instead in its place.")
+      raise ArgumentError, "Directory #{pngdirectory} cannot be created, a file exists instead in its place."
     else
       logger.debug "Using existing directory #{pngdirectory} to hold PNG files ..."
     end
 
-    raise ArgumentError.new("File #{ankifile} exists already, aborting.") if File.exist?(ankifile) && !force
+    raise ArgumentError, "File #{ankifile} exists already, aborting." if File.exist?(ankifile) && !force
 
     @ankifile = ankifile
     @pngdirectory = pngdirectory
