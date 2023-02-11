@@ -48,7 +48,7 @@ class AnkiGenerator
       Dir.chdir(@pngdirectory)
       root_notes.each do |root|
         chordtypes.each do |chordtype|
-          valid_inversions = inversions & Chord::Type::create(chordtype).inversions
+          valid_inversions = inversions & Chord::Type.create(chordtype).inversions
           valid_inversions.each do |inversion|
             c = Chord.new(root, chordtype, inversion)
             a = AnkiChordWriter.new(c)
