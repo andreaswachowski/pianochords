@@ -53,13 +53,6 @@ Style/ClassVars:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 4
-# Configuration parameters: MinBranchesCount.
-Style/HashLikeCase:
-  Exclude:
-    - 'lib/anki_chord_writer.rb'
-    - 'lib/chord.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/IfUnlessModifier:

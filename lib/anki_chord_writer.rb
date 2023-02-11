@@ -25,24 +25,19 @@ class AnkiChordWriter
 
   # We use encircled numbers to signify the akkordlage
   def akkordlage_to_html_symbol
-    case @chord.akkordlage
-    when :terzlage
-      '&#9314;'
-    when :quartlage
-      '&#9315;'
-    when :quintlage
-      '&#9316;'
-    when :sextlage
-      '&#9317;'
-    when :septlage
-      '&#9318;'
-    when :oktavlage
-      '&#9319;'
-    when :nonlage
-      '&#9320;'
-    when :thirteenlage
-      '&#9324;'
-    end
+    conversion_hash =
+      {
+        terzlage: '&#9314;',
+        quartlage: '&#9315;',
+        quintlage: '&#9316;',
+        sextlage: '&#9317;',
+        septlage: '&#9318;',
+        oktavlage: '&#9319;',
+        nonlage: '&#9320;',
+        thirteenlage: '&#9324;'
+      }
+
+    conversion_hash[@chord.akkordlage]
   end
 
   # protected (could be, but are not for the sake of testability)
@@ -63,23 +58,18 @@ class AnkiChordWriter
   end
 
   def akkordlage_for_filename
-    case @chord.akkordlage
-    when :terzlage
-      '3'
-    when :quartlage
-      '4'
-    when :quintlage
-      '5'
-    when :sextlage
-      '6'
-    when :septlage
-      '7'
-    when :oktavlage
-      '8'
-    when :nonlage
-      '9'
-    when :thirteenlage
-      '13'
-    end
+    conversion_hash =
+      {
+        terzlage: '3',
+        quartlage: '4',
+        quintlage: '5',
+        sextlage: '6',
+        septlage: '7',
+        oktavlage: '8',
+        nonlage: '9',
+        thirteenlage: '13'
+      }
+
+    conversion_hash[@chord.akkordlage]
   end
 end

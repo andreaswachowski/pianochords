@@ -41,24 +41,19 @@ class Chord
   end
 
   def akkordlage_in_chord_symbol
-    case akkordlage
-    when :terzlage
-      '(3)'
-    when :quartlage
-      '(4)'
-    when :quintlage
-      '(5)'
-    when :sextlage
-      '(6)'
-    when :septlage
-      '(7)'
-    when :oktavlage
-      '(8)'
-    when :nonlage
-      '(9)'
-    when :thirteenlage
-      '(13)'
-    end
+    conversion_hash =
+      {
+        terzlage: '(3)',
+        quartlage: '(4)',
+        quintlage: '(5)',
+        sextlage: '(6)',
+        septlage: '(7)',
+        oktavlage: '(8)',
+        nonlage: '(9)',
+        thirteenlage: '(13)'
+      }
+
+    conversion_hash[akkordlage]
   end
 
   def to_symbol
@@ -68,24 +63,19 @@ class Chord
   # Akkordlage = German, expresses the topmost interval within the chord.
   # Another way of designating the inversions
   def akkordlage
-    case Chord.highest_interval_without_accidental(inverted_intervals)
-    when '1'
-      :oktavlage
-    when '2'
-      :nonlage
-    when '3'
-      :terzlage
-    when '4'
-      :quartlage
-    when '5'
-      :quintlage
-    when '6'
-      :sextlage
-    when '7'
-      :septlage
-    when '13'
-      :thirteenlage
-    end
+    conversion_hash =
+      {
+        '1' => :oktavlage,
+        '2' => :nonlage,
+        '3' => :terzlage,
+        '4' => :quartlage,
+        '5' => :quintlage,
+        '6' => :sextlage,
+        '7' => :septlage,
+        '13' => :thirteenlage
+      }
+
+    conversion_hash[Chord.highest_interval_without_accidental(inverted_intervals)]
   end
 
   def inverted_intervals
