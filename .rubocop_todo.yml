@@ -60,13 +60,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/anki_generator.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Exclude:
-    - 'lib/interval.rb'
-
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
 Style/RedundantSelf:

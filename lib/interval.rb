@@ -63,7 +63,7 @@ class Interval
     return 0 if self == other
     return -1 if self < other
 
-    return 1
+    1
   end
 
   def -@
