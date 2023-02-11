@@ -111,4 +111,3 @@ class LaTeXPianoChordWriter::Note
     end
   end
 end
-

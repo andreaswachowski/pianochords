@@ -40,4 +40,3 @@ class TestInterval < Test::Unit::TestCase
     assert_equal(6, (-Interval.new('#4', :down)).half_steps)
   end
 end
-
