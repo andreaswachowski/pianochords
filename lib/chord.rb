@@ -111,7 +111,7 @@ class Chord
     minimum = intervals.min
     minimum_interval_found = false
     intervals.map do |i|
-      minimum_interval_found = minimum_interval_found || (i == minimum)
+      minimum_interval_found ||= (i == minimum)
       minimum_interval_found ? @root + i : @root + i - oktave
     end
   end
