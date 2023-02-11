@@ -27,7 +27,7 @@ class LaTeXPianoChordWriter
       f << to_document(png_filename)
     end
     rc = system("latex -shell-escape #{texfile} >/dev/null 2>&1") || \
-      logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
+         logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
 
     # remove all auxiliary files
     %w[aux dvi log ps].each do |ext|
