@@ -27,8 +27,7 @@ class Interval
       'b13' => 20, '13' => 21, '#13' => 22 }
   # rubocop:enable Layout/HashAlignment
 
-  attr_reader :interval
-  attr_reader :direction
+  attr_reader :interval, :direction
 
   def initialize(interval, direction = :up)
     raise ArgumentError.new('Interval must be between 1 and 7, and optionally raised with # or lowered with b') unless Interval.intervals.include?(interval)

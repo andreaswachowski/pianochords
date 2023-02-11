@@ -5,8 +5,7 @@ Dir[File.dirname(__FILE__) + '/chord/type/*.rb'].each { |file| require file.sub(
 require_relative 'chord/type.rb'
 
 class Chord
-  attr_reader :root
-  attr_reader :inversion
+  attr_reader :root, :inversion
 
   # cf. http://www.ctan.org/tex-archive/macros/latex/contrib/piano
 
