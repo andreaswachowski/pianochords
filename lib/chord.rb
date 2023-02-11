@@ -21,10 +21,12 @@ class Chord
   def initialize(root=Note.new(48), chord_type=:maj7, inversion=:root)
     raise ArgumentError.new("chord_type must be one of #{Chord.chord_types.to_s}") \
            unless Chord.chord_types.include?(chord_type)
+
     @chord_type = Chord::Type.create(chord_type)
 
     raise ArgumentError.new("inversion must be one of #{self.inversions.to_s}") \
            unless self.inversions.include?(inversion)
+
     @root = root.instance_of?(Note) ? root : Note.new(root)
     @inversion = inversion
   end

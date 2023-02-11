@@ -78,6 +78,7 @@ class LaTeXPianoChordWriter::Note
   def initialize(note)
     raise ArgumentError.new('note must be an instance of Note') \
       unless note.instance_of?(Note)
+
     @note = note
   end
 
