@@ -86,29 +86,29 @@ class Note
   def pitch_name
     name = case @val.modulo(12)
            when 0
-                   @accidental == :sharp ? 'Bis' : 'C'
+             @accidental == :sharp ? 'Bis' : 'C'
            when 1
-                   @accidental == :sharp ? 'Cis' : 'Des'
+             @accidental == :sharp ? 'Cis' : 'Des'
            when 2
-                   'D'
+             'D'
            when 3
-                   @accidental == :sharp ? 'Dis' : 'Es'
+             @accidental == :sharp ? 'Dis' : 'Es'
            when 4
-                   @accidental == :flat ? 'Fes' : 'E'
+             @accidental == :flat ? 'Fes' : 'E'
            when 5
-                   @accidental == :sharp ? 'Eis' : 'F'
+             @accidental == :sharp ? 'Eis' : 'F'
            when 6
-                   @accidental == :sharp ? 'Fis' : 'Ges'
+             @accidental == :sharp ? 'Fis' : 'Ges'
            when 7
-                   'G'
+             'G'
            when 8
-                   @accidental == :sharp ? 'Gis' : 'As'
+             @accidental == :sharp ? 'Gis' : 'As'
            when 9
-                   'A'
+             'A'
            when 10
-                   @accidental == :sharp ? 'Ais' : 'Bes'
+             @accidental == :sharp ? 'Ais' : 'Bes'
            when 11
-                   @accidental == :flat ? 'Ces' : 'B'
+             @accidental == :flat ? 'Ces' : 'B'
            end
     name
   end

@@ -23,7 +23,7 @@ class TestLaTeXPianoChordWriter < Test::Unit::TestCase
   end
 
   def test_to_document
-  s = <<CHORD
+    s = <<CHORD
 \\documentclass[preview,convert={density=150,outfile="abcdefile"}]{standalone}
 \\usepackage{piano}
 \\usepackage{varwidth}

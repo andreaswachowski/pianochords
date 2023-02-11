@@ -82,7 +82,7 @@ class TestChord < Test::Unit::TestCase
       assert_equal([:root, :first, :second, :third],Chord.new(Note.new,t).inversions)
     end
     [:aug].each do |t|
-    assert_equal([:root, :first, :second],Chord.new(Note.new,t).inversions)
+      assert_equal([:root, :first, :second],Chord.new(Note.new,t).inversions)
     end
   end
 

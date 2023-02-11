@@ -56,7 +56,7 @@ class LaTeXPianoChordWriter
   end
 
   def to_document(outfile)
-  <<CHORD
+    <<CHORD
 \\documentclass[preview,convert={density=150,outfile="#{outfile}"}]{standalone}
 \\usepackage{piano}
 \\usepackage{varwidth}
