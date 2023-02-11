@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'note'
-Dir[File.dirname(__FILE__) + '/chord/type/*.rb'].each { |file| require file.sub(/.rb\z/, '') }
+Dir["#{File.dirname(__FILE__)}/chord/type/*.rb"].each { |file| require file.sub(/.rb\z/, '') }
 require_relative 'chord/type'
 
 class Chord
