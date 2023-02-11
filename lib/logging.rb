@@ -10,7 +10,7 @@ module Logging
 
   class << self
     def logger
-      @logger ||= Logger.new(STDOUT)
+      @logger ||= Logger.new($stdout)
     end
 
     def configure_logger(logtarget)
