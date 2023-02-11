@@ -127,19 +127,19 @@ class Chord
     }
   end
 
-  def self.tensions_one_octave_lower(i)
-    case i
+  def self.tensions_one_octave_lower(tension)
+    case tension
     when /^[b#]*9$/
-      i.gsub(/9/, '2')
+      tension.gsub(/9/, '2')
 
     when /^[b#]*11$/
-      i.gsub(/11/, '4')
+      tension.gsub(/11/, '4')
 
     when /^[b#]*13$/
-      i.gsub(/13/, '6')
+      tension.gsub(/13/, '6')
 
     else
-      i
+      tension
     end
   end
 
