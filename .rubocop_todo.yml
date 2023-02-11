@@ -8,14 +8,6 @@
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_braces
-Layout/FirstHashElementIndentation:
-  Exclude:
-    - 'lib/note.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowMultipleStyles, EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.
 # SupportedHashRocketStyles: key, separator, table
 # SupportedColonStyles: key, separator, table
@@ -38,14 +30,13 @@ Layout/LeadingCommentSpace:
   Exclude:
     - 'lib/chord.rb'
 
-# Offense count: 2
+# Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: symmetrical, new_line, same_line
 Layout/MultilineHashBraceLayout:
   Exclude:
     - 'lib/interval.rb'
-    - 'lib/note.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -133,7 +124,7 @@ Metrics/AbcSize:
 # Offense count: 3
 # Configuration parameters: CountComments, CountAsOne.
 Metrics/ClassLength:
-  Max: 115
+  Max: 117
 
 # Offense count: 9
 # Configuration parameters: AllowedMethods, AllowedPatterns.

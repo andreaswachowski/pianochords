@@ -16,14 +16,16 @@ class Note
                      b bis ces]
 
   class << self; attr_reader :note_symbols_to_accidentals end
-  @note_symbols_to_accidentals = {
-     'c' => nil, 'cis' => :sharp, 'des' => :flat,
-     'd' => nil , 'dis' => :sharp, 'es'  => :flat,
-     'e' => nil, 'eis' => :sharp, 'fes' => :flat,
-     'f' => nil, 'fis' => :sharp, 'ges' => :flat,
-     'g' => nil, 'gis' => :sharp, 'as' => :flat,
-     'a' => nil, 'ais' => :sharp, 'bes' => :flat,
-     'b' => nil, 'bis' => :sharp, 'ces' => :flat }
+  @note_symbols_to_accidentals =
+    {
+      'c' => nil, 'cis' => :sharp, 'des' => :flat,
+      'd' => nil , 'dis' => :sharp, 'es'  => :flat,
+      'e' => nil, 'eis' => :sharp, 'fes' => :flat,
+      'f' => nil, 'fis' => :sharp, 'ges' => :flat,
+      'g' => nil, 'gis' => :sharp, 'as' => :flat,
+      'a' => nil, 'ais' => :sharp, 'bes' => :flat,
+      'b' => nil, 'bis' => :sharp, 'ces' => :flat
+    }
 
   @@offsets_with_accidentals = [1, 3, 6, 8, 10]
 
