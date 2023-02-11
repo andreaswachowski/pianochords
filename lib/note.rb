@@ -60,7 +60,7 @@ class Note
       @val = 48 + Note.offset(value)
       @accidental = Note.note_symbols_to_accidentals[value]
     else
-      raise ArgumentError.new("Note value is #{value.inspect}, but must be between 0 and 119, or one of #{Note.note_symbols.to_s}")
+      raise ArgumentError.new("Note value is #{value.inspect}, but must be between 0 and 119, or one of #{Note.note_symbols}")
     end
   end
 

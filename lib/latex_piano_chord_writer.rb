@@ -50,7 +50,7 @@ class LaTeXPianoChordWriter
     octaves_offset = @chord.notes[0].val.div(12)
     @chord.notes.each { |n|
       postfix = n.val - octaves_offset * 12 < 12 ? 'o' : 't'
-      s += "[#{LaTeXPianoChordWriter::Note.new(n).to_s}#{postfix}]"
+      s += "[#{LaTeXPianoChordWriter::Note.new(n)}#{postfix}]"
     }
     s
   end
@@ -64,7 +64,7 @@ class LaTeXPianoChordWriter
       \\begin{document}
       \\begin{varwidth}{\\linewidth}
       \\begin{figure}[thpb]
-      \\#{to_s}
+      \\#{self}
       \\end{figure}
       \\end{varwidth}
       \\end{document}
