@@ -23,19 +23,19 @@ class TestLaTeXPianoChordWriter < Test::Unit::TestCase
   end
 
   def test_to_document
-    s = <<CHORD
-\\documentclass[preview,convert={density=150,outfile="abcdefile"}]{standalone}
-\\usepackage{piano}
-\\usepackage{varwidth}
+    s = <<~CHORD
+      \\documentclass[preview,convert={density=150,outfile="abcdefile"}]{standalone}
+      \\usepackage{piano}
+      \\usepackage{varwidth}
 
-\\begin{document}
-\\begin{varwidth}{\\linewidth}
-\\begin{figure}[thpb]
-\\keyboard[Co][Eo][Go][Bo]
-\\end{figure}
-\\end{varwidth}
-\\end{document}
-CHORD
+      \\begin{document}
+      \\begin{varwidth}{\\linewidth}
+      \\begin{figure}[thpb]
+      \\keyboard[Co][Eo][Go][Bo]
+      \\end{figure}
+      \\end{varwidth}
+      \\end{document}
+    CHORD
     assert_equal(s, LaTeXPianoChordWriter.new(Chord.new).to_document('abcdefile'))
   end
 end

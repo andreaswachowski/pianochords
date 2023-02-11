@@ -56,19 +56,19 @@ class LaTeXPianoChordWriter
   end
 
   def to_document(outfile)
-    <<CHORD
-\\documentclass[preview,convert={density=150,outfile="#{outfile}"}]{standalone}
-\\usepackage{piano}
-\\usepackage{varwidth}
+    <<~CHORD
+      \\documentclass[preview,convert={density=150,outfile="#{outfile}"}]{standalone}
+      \\usepackage{piano}
+      \\usepackage{varwidth}
 
-\\begin{document}
-\\begin{varwidth}{\\linewidth}
-\\begin{figure}[thpb]
-\\#{to_s}
-\\end{figure}
-\\end{varwidth}
-\\end{document}
-CHORD
+      \\begin{document}
+      \\begin{varwidth}{\\linewidth}
+      \\begin{figure}[thpb]
+      \\#{to_s}
+      \\end{figure}
+      \\end{varwidth}
+      \\end{document}
+    CHORD
   end
 end
 

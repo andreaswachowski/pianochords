@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Layout/HeredocIndentation:
-  Exclude:
-    - 'lib/latex_piano_chord_writer.rb'
-    - 'test/tc_latex_piano_chord_writer.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
