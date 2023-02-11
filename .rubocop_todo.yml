@@ -60,12 +60,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/anki_generator.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantBegin:
-  Exclude:
-    - 'bin/pianochords'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 Style/RedundantFileExtensionInRequire:
