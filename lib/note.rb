@@ -47,7 +47,7 @@ class Note
   attr_reader :val
   attr_reader :accidental
 
-  def initialize(value=48, accidental=nil)
+  def initialize(value = 48, accidental = nil)
     if ((0..119).include?(value))
       @val = value
       if (Note.accidental_required?(value) && accidental.nil?)
