@@ -8,7 +8,7 @@ class Chord::Type::Minor7 < Chord::Type
   end
 
   def self.norm_interval_structure
-    [ '1', 'b3', '5', 'b7' ]
+    ['1', 'b3', '5', 'b7']
   end
 
   def self.anki_filename

@@ -30,8 +30,8 @@ class TestInterval < Test::Unit::TestCase
   end
 
   def test_comparison_advanced
-    unsorted = [ 'b5', '3', '6', '7', 'b2' ].map { |i| Interval.new(i) }
-    sorted = [ 'b2', '3', 'b5', '6', '7' ].map { |i| Interval.new(i) }
+    unsorted = ['b5', '3', '6', '7', 'b2'].map { |i| Interval.new(i) }
+    sorted = ['b2', '3', 'b5', '6', '7'].map { |i| Interval.new(i) }
     assert_equal(unsorted.sort, sorted)
   end
 

@@ -26,7 +26,7 @@ class Note
      'a' => nil, 'ais' => :sharp, 'bes' => :flat,
      'b' => nil, 'bis' => :sharp, 'ces' => :flat }
 
-  @@offsets_with_accidentals = [ 1,3, 6, 8, 10 ]
+  @@offsets_with_accidentals = [1,3, 6, 8, 10]
 
   # Notes are internally just unsigned integer values, 12 values per octave
   # Middle C is C4 (48), A4 is 440 Hz

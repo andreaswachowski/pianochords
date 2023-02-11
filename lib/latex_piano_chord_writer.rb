@@ -30,7 +30,7 @@ class LaTeXPianoChordWriter
       logger.warn("LaTeX invocation failed with exit code, $? contains \"#{$?}\"")
 
     # remove all auxiliary files
-    [ 'aux', 'dvi', 'log', 'ps' ].each do |ext|
+    ['aux', 'dvi', 'log', 'ps'].each do |ext|
       name = "#{file_prefix}.#{ext}"
       File.delete(name) if File.exist?(name)
     end

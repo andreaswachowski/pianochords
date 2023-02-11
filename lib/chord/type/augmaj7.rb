@@ -8,7 +8,7 @@ class Chord::Type::AugMaj7 < Chord::Type
   end
 
   def self.norm_interval_structure
-    [ '1', '3', '#5', '7' ]
+    ['1', '3', '#5', '7']
   end
 
   def self.anki_filename

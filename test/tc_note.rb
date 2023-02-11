@@ -16,7 +16,7 @@ class TestNote < Test::Unit::TestCase
       assert_equal("#{symbol.capitalize}4",Note.new(symbol).scientific_notation)
     end
 
-    [ -2, -1, 120, 121 ].each do |invalid_value|
+    [-2, -1, 120, 121].each do |invalid_value|
       assert_raises(ArgumentError) { Note.new(invalid_value); }
     end
 

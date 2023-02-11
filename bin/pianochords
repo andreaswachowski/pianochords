@@ -14,7 +14,7 @@ class PianoChords < Thor
   option :force, :aliases => '-f', :type => :boolean, :default => false, :desc => 'If true, overwrite existing files.'
   option :loglevel, :aliases => '-l', :default => 'INFO', :desc => 'Set this to DEBUG, INFO, WARN, or FATAL.'
   option :roots, :aliases => '-r', :type => :array, :required => true, :desc => "The roots for the chords to generate. Possible values: #{Note.note_symbols}, or \"all\""
-  option :chord_types, :aliases => '-t', :type => :array, :default => [ :maj7 ], :desc => "Chord types. Possible values: #{Chord.chord_types.map { |t| t.to_s }}, or \"all\""
+  option :chord_types, :aliases => '-t', :type => :array, :default => [:maj7], :desc => "Chord types. Possible values: #{Chord.chord_types.map { |t| t.to_s }}, or \"all\""
   option :inversions, :aliases => '-i', :type => :array, :default => Chord.inversions, :desc => "Chord inversions. Possible values: #{Chord.inversions.map { |i| i.to_s }}, or \"all\""
 
   def generate

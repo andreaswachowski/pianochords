@@ -9,7 +9,7 @@ class Chord::Type::Minor9 < Chord::Type
 
   def self.norm_interval_structure
     # We replace the root with the 9
-    [ '2', 'b3', '5', 'b7' ]
+    ['2', 'b3', '5', 'b7']
   end
 
   def self.anki_filename

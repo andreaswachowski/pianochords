@@ -78,23 +78,23 @@ class TestChord < Test::Unit::TestCase
   end
 
   def test_inversions
-    [ :maj7, :seventh, :minor7, :halfdim, :dim7 ].each do |t|
-      assert_equal([ :root, :first, :second, :third ],Chord.new(Note.new,t).inversions)
+    [:maj7, :seventh, :minor7, :halfdim, :dim7].each do |t|
+      assert_equal([:root, :first, :second, :third],Chord.new(Note.new,t).inversions)
     end
-    [ :aug ].each do |t|
-    assert_equal([ :root, :first, :second ],Chord.new(Note.new,t).inversions)
+    [:aug].each do |t|
+    assert_equal([:root, :first, :second],Chord.new(Note.new,t).inversions)
     end
   end
 
   def test_inverted_intervals
-    assert_equal([ '1', '3', '#5' ],Chord.new(Note.new,:aug,:root).inverted_intervals)
-    assert_equal([ '1', '3', '5', '7' ],Chord.new(Note.new,:maj7,:root).inverted_intervals)
-    assert_equal([ '3', '5', 'b7', '1' ],Chord.new(Note.new,:seventh,:first).inverted_intervals)
-    assert_equal([ '5', 'b7', '1', 'b3' ],Chord.new(Note.new,:minor7,:second).inverted_intervals)
-    assert_equal([ 'b7', '1', 'b3', 'b5' ],Chord.new(Note.new,:halfdim,:third).inverted_intervals)
-    assert_equal([ '6', '1', 'b3', 'b5' ],Chord.new(Note.new,:dim7,:third).inverted_intervals)
-    assert_equal([ '3', '5', 'b7', '2' ],Chord.new(Note.new,:ninth,:first).inverted_intervals)
-    assert_equal([ '5', 'b7', '2', 'b3' ],Chord.new(Note.new,:minor9,:second).inverted_intervals)
+    assert_equal(['1', '3', '#5'],Chord.new(Note.new,:aug,:root).inverted_intervals)
+    assert_equal(['1', '3', '5', '7'],Chord.new(Note.new,:maj7,:root).inverted_intervals)
+    assert_equal(['3', '5', 'b7', '1'],Chord.new(Note.new,:seventh,:first).inverted_intervals)
+    assert_equal(['5', 'b7', '1', 'b3'],Chord.new(Note.new,:minor7,:second).inverted_intervals)
+    assert_equal(['b7', '1', 'b3', 'b5'],Chord.new(Note.new,:halfdim,:third).inverted_intervals)
+    assert_equal(['6', '1', 'b3', 'b5'],Chord.new(Note.new,:dim7,:third).inverted_intervals)
+    assert_equal(['3', '5', 'b7', '2'],Chord.new(Note.new,:ninth,:first).inverted_intervals)
+    assert_equal(['5', 'b7', '2', 'b3'],Chord.new(Note.new,:minor9,:second).inverted_intervals)
   end
 
   def test_tensions_one_octave_lower
@@ -122,36 +122,36 @@ class TestChord < Test::Unit::TestCase
   end
 
   def test_highest_interval_without_accidental
-    assert_equal('4', Chord.highest_interval_without_accidental([ 'b3', '#4']));
-    assert_equal('13', Chord.highest_interval_without_accidental([ 'b3', '13']));
-    assert_equal('9', Chord.highest_interval_without_accidental([ '4', '2', 'b9']));
+    assert_equal('4', Chord.highest_interval_without_accidental(['b3', '#4']));
+    assert_equal('13', Chord.highest_interval_without_accidental(['b3', '13']));
+    assert_equal('9', Chord.highest_interval_without_accidental(['4', '2', 'b9']));
   end
 
   def test_notes
     # All chord types in root position
-    assert_equal([ 48, 52, 55, 59 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:root).notes)
-    assert_equal([ 48, 52, 55, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:seventh,:root).notes)
-    assert_equal([ 48, 51, 55, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:minor7,:root).notes)
-    assert_equal([ 48, 51, 54, 57 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:dim7,:root).notes)
-    assert_equal([ 48, 51, 54, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:halfdim,:root).notes)
-    assert_equal([ 48, 52, 56 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:aug,:root).notes)
+    assert_equal([48, 52, 55, 59].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:root).notes)
+    assert_equal([48, 52, 55, 58].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:seventh,:root).notes)
+    assert_equal([48, 51, 55, 58].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:minor7,:root).notes)
+    assert_equal([48, 51, 54, 57].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:dim7,:root).notes)
+    assert_equal([48, 51, 54, 58].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:halfdim,:root).notes)
+    assert_equal([48, 52, 56].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:aug,:root).notes)
 
     # TODO
-    assert_equal([ 50, 52, 55, 58 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:root).notes)
-    assert_equal([ 40, 43, 46, 50 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:first).notes)
-    assert_equal([ 43, 46, 50, 52 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:second).notes)
+    assert_equal([50, 52, 55, 58].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:root).notes)
+    assert_equal([40, 43, 46, 50].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:first).notes)
+    assert_equal([43, 46, 50, 52].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:ninth,:second).notes)
 
     # Inversions (notice some notes must be below the root, i.e., an octave (12 halftones) lower)
-    assert_equal([ 48, 52, 55, 59 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:root).notes)
-    assert_equal([ 40, 43, 47, 48 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:first).notes)
-    assert_equal([ 43, 47, 48, 52 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:second).notes)
-    assert_equal([ 47, 48, 52, 55 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:third).notes)
-    assert_equal([ 40, 44, 48 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:aug,:first).notes)
+    assert_equal([48, 52, 55, 59].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:root).notes)
+    assert_equal([40, 43, 47, 48].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:first).notes)
+    assert_equal([43, 47, 48, 52].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:second).notes)
+    assert_equal([47, 48, 52, 55].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:maj7,:third).notes)
+    assert_equal([40, 44, 48].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:aug,:first).notes)
 
     # Mixed
-    assert_equal([ 40, 43, 46, 48 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:seventh,:first).notes)
-    assert_equal([ 43, 46, 48, 51 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:minor7,:second).notes)
-    assert_equal([ 46, 48, 51, 54 ].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:halfdim,:third).notes)
+    assert_equal([40, 43, 46, 48].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:seventh,:first).notes)
+    assert_equal([43, 46, 48, 51].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:minor7,:second).notes)
+    assert_equal([46, 48, 51, 54].map { |x| NoteTestHelper.new_note(x) },Chord.new(Note.new,:halfdim,:third).notes)
   end
 
   def test_to_symbol

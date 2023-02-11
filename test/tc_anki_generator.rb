@@ -44,7 +44,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
-    ankiGenerator.generate([ 'As' ], [ :maj7 ], [ :third ])
+    ankiGenerator.generate(['As'], [:maj7], [:third])
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
     # Make sure one anki record is written to the file
@@ -59,7 +59,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     ankiGenerator = AnkiGenerator.new(@dirname,@ankifile,@force)
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
-    ankiGenerator.generate([ 'As' ], [ :maj7 ], Chord::Type.all_inversions)
+    ankiGenerator.generate(['As'], [:maj7], Chord::Type.all_inversions)
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
     count = %x{wc -l #{@ankifile}}.split.first.to_i
@@ -71,7 +71,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     # with a seventh/4-tone-chord
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
-    ankiGenerator.generate([ 'As' ], [ :aug, :maj7 ], Chord::Type.all_inversions)
+    ankiGenerator.generate(['As'], [:aug, :maj7], Chord::Type.all_inversions)
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
     count = %x{wc -l #{@ankifile}}.split.first.to_i

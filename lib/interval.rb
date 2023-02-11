@@ -2,14 +2,14 @@
 
 class Interval
   class << self; attr_reader :intervals end
-  @intervals = [ 'b1', '1', '#1', \
-                 'b2', '2', '#2', \
-                 'b3', '3', '#3', \
-                 'b4', '4', '#4', \
-                 'b5', '5', '#5', \
-                 'b6', '6', '#6', \
-                 'b7', '7', '#7', \
-                 '8' ]
+  @intervals = ['b1', '1', '#1', \
+                'b2', '2', '#2', \
+                'b3', '3', '#3', \
+                'b4', '4', '#4', \
+                'b5', '5', '#5', \
+                'b6', '6', '#6', \
+                'b7', '7', '#7', \
+                '8']
 
   class << self; attr_reader :intervals_to_halfsteps end
   @intervals_to_halfsteps =
@@ -31,7 +31,7 @@ class Interval
 
   def initialize(interval,direction = :up)
     raise ArgumentError.new('Interval must be between 1 and 7, and optionally raised with # or lowered with b') unless Interval.intervals.include?(interval)
-    raise ArgumentError.new('direction must be :up or :down') unless [ :up, :down ].include?(direction)
+    raise ArgumentError.new('direction must be :up or :down') unless [:up, :down].include?(direction)
     @interval = interval
     @direction = direction
   end
