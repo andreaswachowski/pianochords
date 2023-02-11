@@ -8,13 +8,6 @@
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'lib/chord.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: symmetrical, new_line, same_line
 Layout/MultilineHashBraceLayout:

@@ -12,7 +12,7 @@ class Chord
 
   # TODO: Only chords with 4 notes are available at the moment.
   class << self; attr_reader :chord_types end
-  #@chord_types = [:maj7, :seventh, :minor7, :halfdim, :dim7]
+  # @chord_types = [:maj7, :seventh, :minor7, :halfdim, :dim7]
   @chord_types = Chord::Type.all.map { |c| c.downcase }
 
   class << self; attr_reader :inversions end
