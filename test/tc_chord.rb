@@ -77,11 +77,11 @@ class TestChord < Test::Unit::TestCase
   end
 
   def test_inversions
-    [:maj7, :seventh, :minor7, :halfdim, :dim7].each do |t|
-      assert_equal([:root, :first, :second, :third], Chord.new(Note.new, t).inversions)
+    %i[maj7 seventh minor7 halfdim dim7].each do |t|
+      assert_equal(%i[root first second third], Chord.new(Note.new, t).inversions)
     end
     [:aug].each do |t|
-      assert_equal([:root, :first, :second], Chord.new(Note.new, t).inversions)
+      assert_equal(%i[root first second], Chord.new(Note.new, t).inversions)
     end
   end
 

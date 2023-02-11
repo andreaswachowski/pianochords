@@ -4,7 +4,7 @@ Dir["#{File.dirname(__FILE__)}/type/*.rb"].each { |file| require file.sub(/.rb\z
 
 class Chord::Type
   class << self; attr_reader :all_inversions end
-  @all_inversions = [:root, :first, :second, :third]
+  @all_inversions = %i[root first second third]
 
   class << self
     def inversions

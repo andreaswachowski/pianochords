@@ -6,6 +6,6 @@ require_relative 'test_helper'
 
 class TestChordType < Test::Unit::TestCase
   def test_inversions
-    assert_equal([:root, :first, :second, :third], Chord::Type::Maj7.inversions)
+    assert_equal(%i[root first second third], Chord::Type::Maj7.inversions)
   end
 end

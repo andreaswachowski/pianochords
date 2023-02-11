@@ -31,7 +31,7 @@ class Interval
 
   def initialize(interval, direction = :up)
     raise ArgumentError, 'Interval must be between 1 and 7, and optionally raised with # or lowered with b' unless Interval.intervals.include?(interval)
-    raise ArgumentError, 'direction must be :up or :down' unless [:up, :down].include?(direction)
+    raise ArgumentError, 'direction must be :up or :down' unless %i[up down].include?(direction)
 
     @interval = interval
     @direction = direction

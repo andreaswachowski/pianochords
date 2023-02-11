@@ -71,7 +71,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
     # with a seventh/4-tone-chord
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
-    anki_generator.generate(['As'], [:aug, :maj7], Chord::Type.all_inversions)
+    anki_generator.generate(['As'], %i[aug maj7], Chord::Type.all_inversions)
     LaTeXPianoChordWriter.any_instance.unstub(:generate_png)
 
     count = `wc -l #{@ankifile}`.split.first.to_i
