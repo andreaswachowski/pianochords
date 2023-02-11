@@ -1,14 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    metaclass (0.0.4)
-    mocha (1.0.0)
-      metaclass (~> 0.0.1)
-    thor (0.19.0)
+    mocha (2.0.2)
+      ruby2_keywords (>= 0.0.5)
+    power_assert (2.0.3)
+    ruby2_keywords (0.0.5)
+    test-unit (3.5.7)
+      power_assert
+    thor (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   mocha
+  test-unit (~> 3.5)
   thor
+
+BUNDLED WITH
+   2.3.12

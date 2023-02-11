@@ -10,7 +10,7 @@ class PianoChords < Thor
   option :outfile, :aliases => "-o", :default => "ankichords.txt", :desc => "The Anki input file, including questions, answers, and tags"
   option :outdir, :aliases => "-d", :default => "png", :desc => "The directory where the PNG files will be saved."
   # TODO option :logfile, :default => "STDOUT", :desc => "A log file, if only to see how the generation procedes."
-  option :force, :aliases => "-f", :default => false, :desc => "If true, overwrite existing files."
+  option :force, :aliases => "-f", :type => :boolean, :default => false, :desc => "If true, overwrite existing files."
   option :loglevel, :aliases => "-l", :default => "INFO", :desc => "Set this to DEBUG, INFO, WARN, or FATAL."
   option :roots, :aliases => "-r", :type => :array, :required => true, :desc => "The roots for the chords to generate. Possible values: #{Note.note_symbols}, or \"all\""
   option :chord_types, :aliases => "-t", :type => :array, :default => [ :maj7 ], :desc => "Chord types. Possible values: #{Chord.chord_types.map { |t| t.to_s }}, or \"all\""
