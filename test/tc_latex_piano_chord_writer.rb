@@ -18,7 +18,7 @@ class TestLaTeXPianoChordWriter < Test::Unit::TestCase
     File.expects(:open).with('anki_pianofile.tex', 'w')
     File.expects(:to_document).with(pngfilename)
     l.expects(:system).with('latex -shell-escape anki_pianofile.tex >/dev/null 2>&1').once.returns(true)
-    ['aux', 'dvi', 'log', 'ps', 'tex'].each { |ext| File.expects(:delete).with("anki_pianofile.#{ext}").once }
+    %w[aux dvi log ps tex].each { |ext| File.expects(:delete).with("anki_pianofile.#{ext}").once }
     l.generate_png(pngfilename)
   end
 

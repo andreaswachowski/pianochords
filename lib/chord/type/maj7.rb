@@ -9,7 +9,7 @@ class Chord::Type::Maj7 < Chord::Type
   end
 
   def self.norm_interval_structure
-    ['1', '3', '5', '7']
+    %w[1 3 5 7]
   end
 
   def self.anki_filename

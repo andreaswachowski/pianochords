@@ -9,7 +9,7 @@ class Chord::Type::Sixth < Chord::Type
   end
 
   def self.norm_interval_structure
-    ['1', '3', '5', '6']
+    %w[1 3 5 6]
   end
 
   def self.anki_filename

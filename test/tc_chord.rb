@@ -87,13 +87,13 @@ class TestChord < Test::Unit::TestCase
 
   def test_inverted_intervals
     assert_equal(['1', '3', '#5'], Chord.new(Note.new, :aug, :root).inverted_intervals)
-    assert_equal(['1', '3', '5', '7'], Chord.new(Note.new, :maj7, :root).inverted_intervals)
-    assert_equal(['3', '5', 'b7', '1'], Chord.new(Note.new, :seventh, :first).inverted_intervals)
-    assert_equal(['5', 'b7', '1', 'b3'], Chord.new(Note.new, :minor7, :second).inverted_intervals)
-    assert_equal(['b7', '1', 'b3', 'b5'], Chord.new(Note.new, :halfdim, :third).inverted_intervals)
-    assert_equal(['6', '1', 'b3', 'b5'], Chord.new(Note.new, :dim7, :third).inverted_intervals)
-    assert_equal(['3', '5', 'b7', '2'], Chord.new(Note.new, :ninth, :first).inverted_intervals)
-    assert_equal(['5', 'b7', '2', 'b3'], Chord.new(Note.new, :minor9, :second).inverted_intervals)
+    assert_equal(%w[1 3 5 7], Chord.new(Note.new, :maj7, :root).inverted_intervals)
+    assert_equal(%w[3 5 b7 1], Chord.new(Note.new, :seventh, :first).inverted_intervals)
+    assert_equal(%w[5 b7 1 b3], Chord.new(Note.new, :minor7, :second).inverted_intervals)
+    assert_equal(%w[b7 1 b3 b5], Chord.new(Note.new, :halfdim, :third).inverted_intervals)
+    assert_equal(%w[6 1 b3 b5], Chord.new(Note.new, :dim7, :third).inverted_intervals)
+    assert_equal(%w[3 5 b7 2], Chord.new(Note.new, :ninth, :first).inverted_intervals)
+    assert_equal(%w[5 b7 2 b3], Chord.new(Note.new, :minor9, :second).inverted_intervals)
   end
 
   def test_tensions_one_octave_lower
@@ -122,8 +122,8 @@ class TestChord < Test::Unit::TestCase
 
   def test_highest_interval_without_accidental
     assert_equal('4', Chord.highest_interval_without_accidental(['b3', '#4']))
-    assert_equal('13', Chord.highest_interval_without_accidental(['b3', '13']))
-    assert_equal('9', Chord.highest_interval_without_accidental(['4', '2', 'b9']))
+    assert_equal('13', Chord.highest_interval_without_accidental(%w[b3 13]))
+    assert_equal('9', Chord.highest_interval_without_accidental(%w[4 2 b9]))
   end
 
   def test_notes

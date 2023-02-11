@@ -10,7 +10,7 @@ class Chord::Type::Seventh13 < Chord::Type
 
   def self.norm_interval_structure
     # We replace the fifth with the 13
-    ['1', '3', '13', 'b7']
+    %w[1 3 13 b7]
   end
 
   def self.anki_filename

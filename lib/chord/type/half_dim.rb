@@ -9,7 +9,7 @@ class Chord::Type::HalfDim < Chord::Type
   end
 
   def self.norm_interval_structure
-    ['1', 'b3', 'b5', 'b7']
+    %w[1 b3 b5 b7]
   end
 
   def self.anki_filename
