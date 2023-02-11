@@ -19,7 +19,7 @@ class Note
   @note_symbols_to_accidentals =
     {
       'c' => nil, 'cis' => :sharp, 'des' => :flat,
-      'd' => nil , 'dis' => :sharp, 'es'  => :flat,
+      'd' => nil , 'dis' => :sharp, 'es' => :flat,
       'e' => nil, 'eis' => :sharp, 'fes' => :flat,
       'f' => nil, 'fis' => :sharp, 'ges' => :flat,
       'g' => nil, 'gis' => :sharp, 'as' => :flat,
@@ -81,7 +81,7 @@ class Note
   end
 
   def -(interval)
-    self+(-interval)
+    self + (-interval)
   end
 
   def pitch_name
@@ -152,6 +152,6 @@ class Note
   end
 
   def octave_number
-    @val/12
+    @val / 12
   end
 end

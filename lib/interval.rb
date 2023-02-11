@@ -53,11 +53,11 @@ class Interval
   end
 
   def <=(y)
-    (self<y) || (self==y)
+    (self < y) || (self == y)
   end
 
   def >(y)
-    y<self
+    y < self
   end
 
   def <=>(y)

@@ -8,7 +8,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
   def setup
     @loglevel = Logger::INFO
     @force = false
-    @dirname='/tmp/png'
+    @dirname = '/tmp/png'
     @ankifile = '/tmp/ankitestfile.txt'
   end
 

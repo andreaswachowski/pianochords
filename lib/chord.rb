@@ -34,7 +34,7 @@ class Chord
   # A triad has 3 inversions, seventh chords have 4
   # extend chords have 5 (or more)
   def inversions
-    Chord.inversions[0..@chord_type.norm_interval_structure.size-1]
+    Chord.inversions[0..@chord_type.norm_interval_structure.size - 1]
   end
 
   def chord_type
@@ -123,7 +123,7 @@ class Chord
     minimum_interval_found = false
     intervals.map { |i|
       minimum_interval_found = minimum_interval_found || (i == minimum)
-      minimum_interval_found ? @root+i : @root+i-oktave
+      minimum_interval_found ? @root + i : @root + i - oktave
     }
   end
 

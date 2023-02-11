@@ -20,8 +20,8 @@ class LaTeXPianoChordWriter
 
   def generate_png(png_filename)
     # We assume we are in the correct directory
-    file_prefix='anki_pianofile'
-    texfile="#{file_prefix}.tex"
+    file_prefix = 'anki_pianofile'
+    texfile = "#{file_prefix}.tex"
 
     File.open(texfile, 'w') do |f|
       f << to_document(png_filename)
@@ -49,8 +49,8 @@ class LaTeXPianoChordWriter
     s = "\keyboard"
     octaves_offset = @chord.notes[0].val.div(12)
     @chord.notes.each { |n|
-      postfix = n.val - octaves_offset*12 < 12 ? 'o' : 't'
-      s+="[#{LaTeXPianoChordWriter::Note.new(n).to_s}#{postfix}]"
+      postfix = n.val - octaves_offset * 12 < 12 ? 'o' : 't'
+      s += "[#{LaTeXPianoChordWriter::Note.new(n).to_s}#{postfix}]"
     }
     s
   end

@@ -8,7 +8,7 @@ class Chord::Type
 
   class << self
     def inversions
-      Chord::Type.all_inversions[0..norm_interval_structure.size-1]
+      Chord::Type.all_inversions[0..norm_interval_structure.size - 1]
     end
 
     def all
