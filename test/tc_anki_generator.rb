@@ -24,12 +24,12 @@ class TestAnkiGenerator < Test::Unit::TestCase
     assert(Dir.exist?(@dirname))
     Dir.rmdir(@dirname)
 
-    File.open(@dirname, 'w') do |f|
+    File.open(@dirname, 'w') do
       assert_raises(ArgumentError) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
     end
     File.delete(@dirname)
 
-    File.open(@ankifile, 'w') do |f|
+    File.open(@ankifile, 'w') do
       assert_raises(ArgumentError) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
     end
     Dir.rmdir(@dirname)
