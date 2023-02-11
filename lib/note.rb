@@ -8,12 +8,12 @@ class Note
   class << self; attr_reader :note_symbols end
 
   @note_symbols = %w[c cis des
-      d dis es
-      e eis fes
-      f fis ges
-      g gis as
-      a ais bes
-      b bis ces]
+                     d dis es
+                     e eis fes
+                     f fis ges
+                     g gis as
+                     a ais bes
+                     b bis ces]
 
   class << self; attr_reader :note_symbols_to_accidentals end
   @note_symbols_to_accidentals = {
