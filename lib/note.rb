@@ -81,7 +81,7 @@ class Note
   end
 
   def -(other)
-    self + (-other)
+    self + -other
   end
 
   def pitch_name
