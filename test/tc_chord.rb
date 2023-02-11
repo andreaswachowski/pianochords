@@ -41,7 +41,6 @@ class TestChord < Test::Unit::TestCase
     assert_equal(:quintlage,Chord.new(Note.new(48),:maj7, :third).akkordlage)
   end
 
-
   def test_akkordlage_aug
     # Triad, 3 tones
     assert_raises(ArgumentError) { Chord.new(Note.new(48),:aug, :third) }

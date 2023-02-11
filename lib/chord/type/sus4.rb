@@ -2,6 +2,7 @@
 
 class Chord; end
 class Chord::Type; end
+
 class Chord::Type::Sus4 < Chord::Type
   def self.in_chord_symbol
     'sus4'

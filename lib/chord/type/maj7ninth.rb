@@ -2,6 +2,7 @@
 
 class Chord; end
 class Chord::Type; end
+
 class Chord::Type::Maj7Ninth < Chord::Type
   def self.in_chord_symbol
     'maj7_9'
