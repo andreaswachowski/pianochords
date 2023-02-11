@@ -12,7 +12,7 @@ class Interval
                  "8" ]
 
   class << self; attr_reader :intervals_to_halfsteps end
-  @intervals_to_halfsteps = 
+  @intervals_to_halfsteps =
     { "b1" => -1, "1" => 0, "#1" => 1,
       "b2" => 1, "2" => 2, "#2" => 3,
       "b3" => 3, "3" => 4, "#3" => 5,
@@ -43,11 +43,11 @@ class Interval
   # Not sure how to properly define ==. Currently, I only care for the
   # length, thus ignoring the direction.
   def ==(y)
-    Interval.intervals_to_halfsteps[@interval] == Interval.intervals_to_halfsteps[y.interval] 
+    Interval.intervals_to_halfsteps[@interval] == Interval.intervals_to_halfsteps[y.interval]
   end
 
   def <(y)
-    Interval.intervals_to_halfsteps[@interval] < Interval.intervals_to_halfsteps[y.interval] 
+    Interval.intervals_to_halfsteps[@interval] < Interval.intervals_to_halfsteps[y.interval]
   end
 
   def <=(y)
@@ -69,6 +69,6 @@ class Interval
   end
 
   def half_steps
-    @direction == :up ? Interval.intervals_to_halfsteps[@interval] : -Interval.intervals_to_halfsteps[@interval] 
+    @direction == :up ? Interval.intervals_to_halfsteps[@interval] : -Interval.intervals_to_halfsteps[@interval]
   end
 end

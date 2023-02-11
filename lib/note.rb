@@ -2,7 +2,7 @@
 
 require_relative 'interval'
 
-#  TODO Introduce key so that individual notes are 
+#  TODO Introduce key so that individual notes are
 #  named according to key
 #  TODO Allow "#" and "b" as accidentals in the note_symbols (or at least in the constructors for the notes, as strings
 class Note
