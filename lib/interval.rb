@@ -24,8 +24,7 @@ class Interval
                   '8' => 12,
       'b9' => 13, '9' => 14, '#9' => 15,
       'b11' => 16, '11' => 17, '#11' => 18,
-      'b13' => 20, '13' => 21, '#13' => 22
-  }
+      'b13' => 20, '13' => 21, '#13' => 22 }
   # rubocop:enable Layout/HashAlignment
 
   attr_reader :interval
