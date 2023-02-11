@@ -12,13 +12,13 @@ class Chord::Type
     end
 
     def all
-      Chord::Type.constants.select {|c| Chord::Type.const_get(c).is_a? Class}
+      Chord::Type.constants.select { |c| Chord::Type.const_get(c).is_a? Class }
     end
 
     def create(chord_type)
       Object.const_get('Chord')
             .const_get('Type')
-            .const_get("#{Chord::Type.all.select { |c| c.downcase == chord_type}.first}")
+            .const_get("#{Chord::Type.all.select { |c| c.downcase == chord_type }.first}")
     end
   end
 end
