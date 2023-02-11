@@ -2,9 +2,8 @@
 
 require_relative 'interval'
 
-#  TODO Introduce key so that individual notes are
-#  named according to key
-#  TODO Allow "#" and "b" as accidentals in the note_symbols (or at least in the constructors for the notes, as strings
+#  TODO: Introduce key so that individual notes are named according to key
+#  TODO: Allow "#" and "b" as accidentals in the note_symbols (or at least in the constructors for the notes, as strings
 class Note
   class << self; attr_reader :note_symbols end
 
@@ -73,8 +72,8 @@ class Note
 
   def +(interval)
     newval = @val + interval.half_steps
-    # TODO The accidental in fact depends on the key, instead we
-    # arbitrarily default to sharp
+    # TODO: The accidental in fact depends on the key, instead we arbitrarily
+    # default to sharp
     accidental = Note.accidental_required?(newval) ? :sharp : nil
     Note.new(newval, accidental)
   end
@@ -115,7 +114,7 @@ class Note
 
   # Gives the offset from a C to a given note symbol in halftones
   def self.offset(note_symbol)
-    #TODO how to handle english names?
+    # TODO: how to handle english names?
     case note_symbol.downcase
     when 'bis', 'c'
       0

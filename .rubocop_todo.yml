@@ -72,13 +72,12 @@ Layout/HeredocIndentation:
     - 'lib/latex_piano_chord_writer.rb'
     - 'test/tc_latex_piano_chord_writer.rb'
 
-# Offense count: 2
+# Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
 Layout/LeadingCommentSpace:
   Exclude:
     - 'lib/chord.rb'
-    - 'lib/note.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -273,17 +272,6 @@ Style/ColonMethodCall:
 Style/CommandLiteral:
   Exclude:
     - 'test/tc_anki_generator.rb'
-
-# Offense count: 5
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Keywords, RequireColon.
-# Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW, NOTE
-Style/CommentAnnotation:
-  Exclude:
-    - 'bin/pianochords'
-    - 'lib/anki_generator.rb'
-    - 'lib/note.rb'
-    - 'test/tc_chord.rb'
 
 # Offense count: 25
 # Configuration parameters: AllowedConstants.

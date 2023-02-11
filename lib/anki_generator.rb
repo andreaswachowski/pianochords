@@ -5,7 +5,7 @@ require_relative 'anki_chord_writer'
 require_relative 'chord'
 require_relative 'logging'
 
-# TODO:
+# TODO: (See below)
 # - Write pianochord_generator to be used from the command line
 #   cf. http://rubylearning.com/blog/2011/01/03/how-do-i-make-a-command-line-tool-in-ruby/
 #

@@ -20,7 +20,7 @@ class TestChord < Test::Unit::TestCase
     # A simple triad does not have a third inversion
     assert_raises(ArgumentError) { Chord.new('C', :aug, :third) }
 
-    # TODO Make Chord constructor more flexible, and permit the below
+    # TODO: Make Chord constructor more flexible, and permit the below
     # c = Chord.new(:inversion => :first)
     # assert_equal(Note.new,c.root)
     # assert_equal(:maj7,c.chord_type)
