@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Lint/AmbiguousOperatorPrecedence:
-  Exclude:
-    - 'lib/latex_piano_chord_writer.rb'
-    - 'test/tc_note.rb'
-
 # Offense count: 32
 # Configuration parameters: AllowComments.
 Lint/EmptyClass:

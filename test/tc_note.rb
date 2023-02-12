@@ -31,7 +31,7 @@ class TestNote < Test::Unit::TestCase
 
   def test_scientific_notation
     10.times do |octave_number|
-      assert_equal("C#{octave_number}", Note.new(0 + octave_number * 12).scientific_notation)
+      assert_equal("C#{octave_number}", Note.new(0 + (octave_number * 12)).scientific_notation)
     end
     assert_equal('C4', Note.new(48).scientific_notation)
     assert_equal('Cis4', Note.new(49, :sharp).scientific_notation)
