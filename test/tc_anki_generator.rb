@@ -114,7 +114,7 @@ class TestAnkiGenerator < Test::Unit::TestCase
   end
 
   def teardown
-    FileUtils.rm_rf(@dirname) if Dir.exist?(@dirname)
-    File.delete(@ankifile) if File.exist?(@ankifile)
+    FileUtils.rm_rf(@dirname)
+    FileUtils.rm_f(@ankifile)
   end
 end

@@ -11,13 +11,6 @@
 Lint/EmptyClass:
   Enabled: false
 
-# Offense count: 5
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Lint/NonAtomicFileOperation:
-  Exclude:
-    - 'lib/latex_piano_chord_writer.rb'
-    - 'test/tc_anki_generator.rb'
-
 # Offense count: 20
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
 Metrics/AbcSize:
