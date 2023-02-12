@@ -27,7 +27,7 @@ class Note
       'b' => nil, 'bis' => :sharp, 'ces' => :flat
     }
 
-  @@offsets_with_accidentals = [1, 3, 6, 8, 10]
+  @offsets_with_accidentals = [1, 3, 6, 8, 10]
 
   # Notes are internally just unsigned integer values, 12 values per octave
   # Middle C is C4 (48), A4 is 440 Hz
@@ -150,7 +150,7 @@ class Note
   end
 
   def self.accidental_required?(value)
-    @@offsets_with_accidentals.include?(value.modulo(12))
+    @offsets_with_accidentals.include?(value.modulo(12))
   end
 
   def octave_number
