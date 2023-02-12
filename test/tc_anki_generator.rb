@@ -15,22 +15,48 @@ class TestAnkiGenerator < Test::Unit::TestCase
   def test_initialize
     raise ArgumentError, "File #{@ankifile} exists, aborting test." if File.exist?(@ankifile)
 
-    AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel)
+    AnkiGenerator.new(
+      pngdirectory: @dirname,
+      ankifile: @ankifile,
+      force: @force,
+      loglevel: @loglevel
+    )
     assert(Dir.exist?(@dirname))
     Dir.rmdir(@dirname)
 
     Dir.mkdir(@dirname)
-    assert_nothing_raised(Exception) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
+    assert_nothing_raised(Exception) do
+      AnkiGenerator.new(
+        pngdirectory: @dirname,
+        ankifile: @ankifile,
+        force: @force,
+        loglevel: @loglevel
+      )
+    end
     assert(Dir.exist?(@dirname))
     Dir.rmdir(@dirname)
 
     File.open(@dirname, 'w') do
-      assert_raises(ArgumentError) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
+      assert_raises(ArgumentError) do
+        AnkiGenerator.new(
+          pngdirectory: @dirname,
+          ankifile: @ankifile,
+          force: @force,
+          loglevel: @loglevel
+        )
+      end
     end
     File.delete(@dirname)
 
     File.open(@ankifile, 'w') do
-      assert_raises(ArgumentError) { AnkiGenerator.new(@dirname, @ankifile, @force, @loglevel) }
+      assert_raises(ArgumentError) do
+        AnkiGenerator.new(
+          pngdirectory: @dirname,
+          ankifile: @ankifile,
+          force: @force,
+          loglevel: @loglevel
+        )
+      end
     end
     Dir.rmdir(@dirname)
     File.delete(@ankifile)
@@ -41,7 +67,11 @@ class TestAnkiGenerator < Test::Unit::TestCase
     # Ensure LaTeXPianoChordWriter is called with correct file name, and
     # Anki record is generated
     c = Chord.new('As', :maj7, :third)
-    anki_generator = AnkiGenerator.new(@dirname, @ankifile, @force)
+    anki_generator = AnkiGenerator.new(
+      pngdirectory: @dirname,
+      ankifile: @ankifile,
+      force: @force
+    )
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).with(AnkiChordWriter.new(c).filename).returns(true)
     anki_generator.generate(['As'], [:maj7], [:third])
@@ -56,7 +86,11 @@ class TestAnkiGenerator < Test::Unit::TestCase
     # Generation of all inversions for a seventh/4-tone-chord
     Chord.new('As', :maj7, :third)
 
-    anki_generator = AnkiGenerator.new(@dirname, @ankifile, @force)
+    anki_generator = AnkiGenerator.new(
+      pngdirectory: @dirname,
+      ankifile: @ankifile,
+      force: @force
+    )
 
     LaTeXPianoChordWriter.any_instance.stubs(:generate_png).returns(true)
     anki_generator.generate(['As'], [:maj7], Chord::Type.all_inversions)

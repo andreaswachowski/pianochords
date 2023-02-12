@@ -24,12 +24,7 @@ Metrics/CyclomaticComplexity:
 # Offense count: 21
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
 Metrics/MethodLength:
-  Max: 28
-
-# Offense count: 1
-# Configuration parameters: Max, CountKeywordArgs.
-Metrics/ParameterLists:
-  MaxOptionalParameters: 5
+  Max: 43
 
 # Offense count: 3
 # Configuration parameters: AllowedMethods, AllowedPatterns.
@@ -52,10 +47,3 @@ Style/ClassVars:
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Enabled: false
-
-# Offense count: 1
-# Configuration parameters: AllowedMethods.
-# AllowedMethods: respond_to_missing?
-Style/OptionalBooleanParameter:
-  Exclude:
-    - 'lib/anki_generator.rb'

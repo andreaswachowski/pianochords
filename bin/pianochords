@@ -34,10 +34,10 @@ class PianoChords < Thor
 
   def generate
     a = AnkiGenerator.new(
-      options[:outdir],
-      options[:outfile],
-      options[:force],
-      PianoChords.loglevel(options[:loglevel])
+      pngdirectory: options[:outdir],
+      ankifile: options[:outfile],
+      force: options[:force],
+      loglevel: PianoChords.loglevel(options[:loglevel])
     )
 
     roots = options[:roots].include?('all') ? Note.note_symbols : options[:roots]
