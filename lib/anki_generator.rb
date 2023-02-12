@@ -17,7 +17,13 @@ require_relative 'logging'
 class AnkiGenerator
   include Logging
 
-  def initialize(pngdirectory = 'png', ankifile = 'ankichords.txt', force = false, loglevel = Logger::WARN, logtarget = $stderr)
+  def initialize(
+    pngdirectory = 'png',
+    ankifile = 'ankichords.txt',
+    force = false,
+    loglevel = Logger::WARN,
+    logtarget = $stderr
+  )
     Logging.configure_logger(logtarget)
     logger.level = loglevel
 

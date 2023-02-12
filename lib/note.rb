@@ -51,7 +51,9 @@ class Note
     if (0..119).include?(value)
       @val = value
       if Note.accidental_required?(value) && accidental.nil?
-        raise ArgumentError, "Must provide accidental for #{value} which could be either #{Note.new(value, :flat).pitch_name} or #{Note.new(value, :sharp).pitch_name}"
+        a1 = Note.new(value, :flat).pitch_name
+        a2 = Note.new(value, :sharp).pitch_name
+        raise ArgumentError, "Must provide accidental for #{value} which could be either #{a1} or #{a2}"
       end
 
       @accidental = accidental
@@ -60,7 +62,8 @@ class Note
       @val = 48 + Note.offset(value)
       @accidental = Note.note_symbols_to_accidentals[value]
     else
-      raise ArgumentError, "Note value is #{value.inspect}, but must be between 0 and 119, or one of #{Note.note_symbols}"
+      msg = "Note value is #{value.inspect}, but must be between 0 and 119, or one of #{Note.note_symbols}"
+      raise ArgumentError, msg
     end
   end
 

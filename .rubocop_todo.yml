@@ -14,7 +14,7 @@ Metrics/AbcSize:
 # Offense count: 3
 # Configuration parameters: CountComments, CountAsOne.
 Metrics/ClassLength:
-  Max: 117
+  Max: 118
 
 # Offense count: 9
 # Configuration parameters: AllowedMethods, AllowedPatterns.
@@ -59,10 +59,3 @@ Style/Documentation:
 Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/anki_generator.rb'
-
-# Offense count: 11
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 183
